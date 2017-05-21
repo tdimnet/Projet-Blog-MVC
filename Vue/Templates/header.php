@@ -11,3 +11,5 @@
   <header>
     <h1>Here goes the header</h1>
   </header>
+
+<hr>
