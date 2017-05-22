@@ -1,7 +1,6 @@
 <?php
-require_once 'Modele/article.php';
+require_once 'Modele/articles.php';
 
-$annonce = find($_GET['id']);
-var_dump($annonce);
+$article = findOne($_GET['id']);
 
 require_once 'Vue/Blog/article.php';

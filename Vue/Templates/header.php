@@ -10,6 +10,9 @@
 <body>
   <header>
     <h1>Here goes the header</h1>
+    <a href="./">
+      Retourner à l'accueil
+    </a>
   </header>
 
 <hr>

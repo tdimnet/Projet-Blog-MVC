@@ -18,5 +18,5 @@ function findOne($articleId) {
 
   $article = $request->fetch();
 
-  return $annonce;
+  return $article;
 }

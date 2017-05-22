@@ -13,7 +13,7 @@ foreach ($articles as $article) { ?>
     </small>
   </h4>
 
-  <a href="<?php echo $article['id'] ?>">
+  <a href="?Controller=Blog&&Vue=article&&id=<?php echo $article['id'] ?>">
     Lire la suite
   </a>
   <br>
