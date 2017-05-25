@@ -11,5 +11,10 @@ function findAllComments() {
 
 // Return only the comments which match the articleId
 function findCommentByArticle($articleId) {
-  return 'foo';
+  global $bdd;
+  $request = $bdd->prepare('SELECT * from comments WHERE article_id=:article_id');
+  $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
+  $request->execute();
+  $comments = $request->fetchAll();
+  return $comments;
 }

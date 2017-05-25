@@ -1,5 +1,4 @@
 <?php
-
 include_once 'Vue/Templates/header.php';
 include_once 'Vue/Templates/navigation.php';
 
@@ -16,6 +15,10 @@ include_once 'Vue/Templates/navigation.php';
     <?php echo $article['episode']; ?>
   </section>
 </main>
+
+<?php
+include_once 'Vue/Blog/comments.php';
+?>
 
 <?php
 include_once 'Vue/Templates/footer.php';
