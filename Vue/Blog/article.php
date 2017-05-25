@@ -17,7 +17,13 @@ include_once 'Vue/Templates/navigation.php';
 </main>
 
 <?php
-include_once 'Vue/Blog/comments.php';
+include_once 'Vue/Blog/commentsList.php';
+?>
+
+<hr>
+
+<?php
+include_once 'Vue/Blog/leaveComment.php';
 ?>
 
 <?php

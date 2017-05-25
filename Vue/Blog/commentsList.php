@@ -16,6 +16,14 @@ foreach ($comments as $comment) { ?>
     <br>
     <?php echo $comment['comment']; ?>
   </p>
+  <ul>
+    <li>
+      Repondre
+    </li>
+    <li>
+      Signaler
+    </li>
+  </ul>
 <?php
 }
 ?>
