@@ -18,3 +18,14 @@ function findCommentByArticle($articleId) {
   $comments = $request->fetchAll();
   return $comments;
 }
+
+// Return the answers to a comments
+function findAnsweringComment($articleId, $commentId) {
+  global $bdd;
+  $request = $bdd->prepare('SELECT * FROM comments WHERE article_id=:article_id AND answer_id=:answer_id');
+  $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
+  $request->bindParam(':answer_id', $commentId, PDO::PARAM_INT);
+  $request->execute();
+  $answers = $request->fetchAll();
+  return $answers;
+}

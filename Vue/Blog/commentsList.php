@@ -25,5 +25,10 @@ foreach ($comments as $comment) { ?>
     </li>
   </ul>
 <?php
+// If the array of answers of the current comment is not empty, show it
+$answers = findAnsweringComment($comment['article_id'], $comment['id']);
+  if (!empty($answers)) {
+    var_dump($answers);
+  }
 }
 ?>
