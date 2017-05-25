@@ -32,8 +32,12 @@ $answers = findAnsweringComment($comment['id']);
     // The way to access the last answers (not more tree sub-levels of comment)
     // For now, we are just fetching the first item inside the array
     // 'last_answer' => string '1' = true / else false
-    $last = findAnsweringComment($answers[0]['id']);
-    var_dump($last);
+    $lasts = findAnsweringComment($answers[0]['id']);
+    foreach ($lasts as $last) {
+      if(!empty($last)) {
+        var_dump($last);
+      }
+    }
   }
 }
 ?>

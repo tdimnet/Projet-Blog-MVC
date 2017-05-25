@@ -30,3 +30,14 @@ function findAnsweringComment($commentId) {
   $answers = $request->fetchAll();
   return $answers;
 }
+
+
+//
+function addComment($name, $email_address, $comment) {
+  global $bdd;
+  $request = $bdd->prepare('INSERT INTO comments(full_name, email_address, comment) VALUES (:full_name, :email_address, :comment)');
+  $request->bindParam(':full_name', $name, PDO::PARAM_STR);
+  $request->bindParam(':email_address', $email_address, PDO::PARAM_STR);
+  $request->bindParam(':comment', $comment, PDO::PARAM_STR);
+  $request->execute();
+}
