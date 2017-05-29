@@ -1,5 +1,5 @@
 <h2>Leave a comment</h2>
-<form class="" method="get">
+<form class="" method="post">
   <input type="text" name="name" placeholder="Your name">
   <br>
   <input type="text" name="mail" placeholder="Your e-mail address">
