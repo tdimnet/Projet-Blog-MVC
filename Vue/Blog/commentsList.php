@@ -35,7 +35,7 @@ $answers = findAnsweringComment($comment['id']);
     $lasts = findAnsweringComment($answers[0]['id']);
     foreach ($lasts as $last) {
       if(!empty($last)) {
-        var_dump($last);
+        var_dump('last answer ',$last);
       }
     }
   }
