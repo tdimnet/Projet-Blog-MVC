@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   addComment($name, $mail, $comment, $articleId);
 
   // Finally we redirect the user
-  header('Location: index.php');
+  header('Location: index.php?Controller=Blog&&Vue=article&&id='. $articleId);
 }
 
 require_once 'Vue/Blog/article.php';
