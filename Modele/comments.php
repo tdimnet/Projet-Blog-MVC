@@ -32,7 +32,7 @@ function findAnsweringComment($commentId) {
 }
 
 
-//
+// Add a comment in relationship with the article_id
 function addComment($name, $email_address, $comment, $articleId) {
   global $bdd;
   $request = $bdd->prepare('INSERT INTO comments(full_name, email_address, comment, article_id) VALUES (:full_name, :email_address, :comment, :article_id)');
