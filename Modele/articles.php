@@ -30,3 +30,13 @@ function addArticle($title, $episode, $created_at) {
   $request->bindParam(':date_creation', $created_at);
   $request->execute();
 }
+
+
+// Delete an existing article
+function deleteArticle($articleId) {
+  global $bdd;
+  $request = $bdd->prepare('DELETE FROM articles WHERE id=:id');
+  $request->bindParam(':id', $articleId, PDO::PARAM_INT);
+  $request->execute();
+  // DELETE FROM `articles` WHERE `articles`.`id` = 7
+}
