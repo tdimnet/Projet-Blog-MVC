@@ -25,6 +25,10 @@ foreach ($comments as $comment) { ?>
     </li>
   </ul>
 <?php
+
+// Prevoir un include pour cette FANNConnection
+// Créer une variable pour préciser a chaque que je rentre dans la fonction => si la variable atteint son nombre max (4 niveau de reponses) => on stop
+
 // If the array of answers of the current comment is not empty, show it
 $answers = findAnsweringComment($comment['id']);
   if (!empty($answers)) {
