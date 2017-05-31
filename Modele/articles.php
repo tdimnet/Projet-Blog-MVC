@@ -9,6 +9,14 @@ function findAll() {
   return $articles;
 }
 
+function findAllPublished() {
+  global $bdd;
+  $request = $bdd->prepare('SELECT * FROM articles WHERE status = 1');
+  $request->execute();
+  $articles = $request->fetchAll();
+  return $articles;
+}
+
 
 // Return the article of match the id
 function findOne($articleId) {
@@ -22,12 +30,13 @@ function findOne($articleId) {
 
 
 // Write a new episode into the bdd
-function addArticle($title, $episode, $created_at) {
+function addArticle($title, $episode, $created_at, $status) {
   global $bdd;
-  $request = $bdd->prepare('INSERT INTO articles(titre, episode, date_creation) VALUES (:titre, :episode, :date_creation)');
+  $request = $bdd->prepare('INSERT INTO articles(titre, episode, date_creation, status) VALUES (:titre, :episode, :date_creation, :status)');
   $request->bindParam(':titre', $title, PDO::PARAM_STR);
   $request->bindParam(':episode', $episode, PDO::PARAM_STR);
   $request->bindParam(':date_creation', $created_at);
+  $request->bindParam(':status', $status, PDO::PARAM_BOOL);
   $request->execute();
 }
 

@@ -2,6 +2,6 @@
 
 require_once 'Modele/articles.php';
 
-$articles = findAll();
+$articles = findAllPublished();
 
 include_once 'Vue/Blog/index.php';

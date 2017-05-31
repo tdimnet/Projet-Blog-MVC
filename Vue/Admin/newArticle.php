@@ -10,12 +10,17 @@ include_once 'Vue\Templates\header.php';
   <br>
   <textarea name="episode" rows="8" cols="80" placeholder="Episode text"></textarea>
   <br>
+  <select name="status">
+    <option value="0">Not Publish</option>
+    <option value="1">Publish</option>
+  </select>
+  <br>
   <button type="submit" name="button">
     Send your episode
   </button>
 </form>
 
-
+<!--
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>
 tinymce.init({
@@ -29,7 +34,7 @@ tinymce.init({
   ],
   toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 });
-</script>
+</script> -->
 
 
 <?php
