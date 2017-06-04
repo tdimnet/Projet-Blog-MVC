@@ -41,11 +41,21 @@ function addArticle($title, $episode, $created_at, $status) {
 }
 
 
+// Update the article
+function updateArticle($title, $episode, $status, $articleId) {
+  global $bdd;
+  $request = $bdd->prepare('UPDATE articles SET titre = :new_titre, episode = :new_episode, status = :new_status WHERE id = :article_id');
+  $request->bindParam(':new_titre', $title, PDO::PARAM_STR);
+  $request->bindParam(':new_episode', $episode, PDO::PARAM_STR);
+  $request->bindParam(':new_status', $status, PDO::PARAM_BOOL);
+  $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
+  $request->execute();
+}
+
 // Delete an existing article
 function deleteArticle($articleId) {
   global $bdd;
   $request = $bdd->prepare('DELETE FROM articles WHERE id=:id');
   $request->bindParam(':id', $articleId, PDO::PARAM_INT);
   $request->execute();
-  // DELETE FROM `articles` WHERE `articles`.`id` = 7
 }
