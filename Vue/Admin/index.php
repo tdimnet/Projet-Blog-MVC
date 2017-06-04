@@ -26,11 +26,12 @@ foreach ($articles as $article) {
 <h4>Titre de l'article : <?php echo $article['titre']; ?></h4>
 <h5>Status : <?php if ($article['status']) { echo 'published'; } else { echo 'waiting'; } ?></h5>
 <ul>
+
   <li>
-    <a href="#">Modify the article</a>
+    <a href="?Controller=Admin&&Vue=modifyArticle&&id=<?php echo $article['id'] ?>">Modify the article</a>
   </li>
   <li>
-    <a href="#">Delete the article</a>
+    <a href="?Controller=Admin&&Action=deleteArticle&&id=<?php echo $article['id'] ?>">Delete the article</a>
   </li>
 </ul>
 
