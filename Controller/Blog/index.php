@@ -1,7 +1,8 @@
 <?php
 
-require_once 'Modele/articles.php';
+require_once 'Modele/Article.php';
 
-$articles = findAllPublished();
+$Article = new Article;
+$articles = $Article->findAllPublished();
 
 include_once 'Vue/Blog/index.php';

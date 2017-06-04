@@ -13,6 +13,7 @@ foreach ($comments as $comment) { ?>
     </small>
   </h4>
 
+  <h5><a href="#">Moderate the article comment</a></h5>
   <p>
     Commnent :
     <br>

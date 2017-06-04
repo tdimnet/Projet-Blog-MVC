@@ -11,9 +11,6 @@ include_once 'Vue/Templates/navigation.php';
   <li>
     <a href="?Controller=Admin&&Vue=newArticle">Write a new article</a>
   </li>
-  <li>
-    <a href="?Controller=Admin&&Vue=modifyArticle">Modify an existing article</a>
-  </li>
 </ul>
 
 <hr>

@@ -1,9 +1,11 @@
 <?php
-require_once 'Modele/articles.php';
+require_once 'Modele/Article.php';
 require_once 'Modele/comments.php';
 
+$Article = new Article();
+
 $articleId = $_GET['id'];
-$article = findOne($articleId);
+$article = $Article->findOne($articleId);
 $comments = findCommentByArticle($articleId);
 
 // If the comment is submitted with a POST Method

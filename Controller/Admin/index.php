@@ -1,14 +1,15 @@
 <?php
-require_once 'Modele/articles.php';
+require_once 'Modele/Article.php';
 require_once 'Modele/comments.php';
 
-$articles = findAll();
+$Article = new Article;
+$articles = $Article->findAll();
 
 // Delete function
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle') {
     $articleId = $_GET['id'];
-    deleteArticle($articleId);
+    $Article->deleteArticle($articleId);
     header('Location: index.php');
   }
 }

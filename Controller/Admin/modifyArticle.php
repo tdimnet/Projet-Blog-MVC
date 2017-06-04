@@ -1,17 +1,17 @@
 <?php
-require_once 'Modele/articles.php';
+require_once 'Modele/Article.php';
 
 $articleId = $_GET['id'];
 
-$article = findOne($articleId);
+$Article = new Article();
+$article = $Article->findOne($articleId);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  var_dump($_POST, $articleId);
   $title = $_POST['titre'];
   $episode = $_POST['episode'];
   $status = $_POST['status'];
 
-  updateArticle($title, $episode, $status, $articleId);
+  $Article->updateArticle($title, $episode, $status, $articleId);
 
   header('Location: index.php');
 }

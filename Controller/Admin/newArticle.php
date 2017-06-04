@@ -1,6 +1,7 @@
 <?php
 
-require_once 'Modele/articles.php';
+require_once 'Modele/Article.php';
+$Article = new Article();
 
 // If a new article has been posted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -11,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $created_at = $created_at->format('Y-m-d H:i:s');
 
   // We add the article into the data base
-  addArticle($title, $episode, $created_at, $status);
+  $Article->addArticle($title, $episode, $created_at, $status);
 
   // Then we redirect the user
   header('Location: index.php');
