@@ -2,7 +2,8 @@
 <h2>Here are all the comments of the articles</h2>
 
 <?php
-$comments = findAllComments();
+$Comment = new Comment();
+$comments = $Comment->findAllComments();
 foreach ($comments as $comment) { ?>
   <hr>
   <h4>

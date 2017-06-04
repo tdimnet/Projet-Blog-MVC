@@ -1,9 +1,10 @@
 <?php
 require_once 'Modele/Article.php';
-require_once 'Modele/comments.php';
+require_once 'Modele/Comment.php';
 
-$Article = new Article;
+$Article = new Article();
 $articles = $Article->findAll();
+
 
 // Delete function
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
