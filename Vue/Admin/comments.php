@@ -1,3 +1,4 @@
+<hr>
 <h2>Here are all the comments of the articles</h2>
 
 <?php

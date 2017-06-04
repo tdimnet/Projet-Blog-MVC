@@ -14,11 +14,29 @@ include_once 'Vue/Templates/navigation.php';
   <li>
     <a href="?Controller=Admin&&Vue=modifyArticle">Modify an existing article</a>
   </li>
+</ul>
+
+<hr>
+
+<h2>Here is the list of all your articles</h2>
+<?php
+foreach ($articles as $article) {
+?>
+
+<h4>Titre de l'article : <?php echo $article['titre']; ?></h4>
+<h5>Status : <?php if ($article['status']) { echo 'published'; } else { echo 'waiting'; } ?></h5>
+<ul>
   <li>
-    <a href="?Controller=Admin&&Vue=deleteArticle">Delete an article</a>
+    <a href="#">Modify the article</a>
+  </li>
+  <li>
+    <a href="#">Delete the article</a>
   </li>
 </ul>
 
+<?php
+}
+?>
 
 <?php
 include_once 'Vue/Admin/comments.php';

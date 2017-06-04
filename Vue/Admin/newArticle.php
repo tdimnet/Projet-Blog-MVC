@@ -20,7 +20,7 @@ include_once 'Vue\Templates\header.php';
   </button>
 </form>
 
-<!--
+
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>
 tinymce.init({
@@ -34,7 +34,7 @@ tinymce.init({
   ],
   toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
 });
-</script> -->
+</script>
 
 
 <?php

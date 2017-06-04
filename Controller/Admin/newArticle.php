@@ -4,7 +4,6 @@ require_once 'Modele/articles.php';
 
 // If a new article has been posted
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  var_dump($_POST);
   $title = $_POST['titre'];
   $episode = $_POST['episode'];
   $created_at = new \DateTime();
