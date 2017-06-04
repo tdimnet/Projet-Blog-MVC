@@ -12,17 +12,17 @@ include_once 'Vue/Templates/header.php';
     <?php
     // Display the list of articles
     foreach ($articles as $article) { ?>
-      <!-- <h4>
+      <h4>
         <?php echo $article['titre']; ?> -
         <small>
           <?php echo $article['date_creation']; ?>
         </small>
-      </h4> -->
+      </h4>
 
-      <!-- <a href="?Controller=Blog&&Vue=article&&id=<?php echo $article['id'] ?>">
+      <a href="?Controller=Blog&&Vue=article&&id=<?php echo $article['id'] ?>">
         Lire la suite
       </a>
-      <br> -->
+      <br>
     <?php }
     ?>
   </div>
