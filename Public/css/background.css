@@ -17,13 +17,16 @@
 	position: absolute;
 	margin: 0;
 	text-align: center;
-	top: 50%;
+	top: 30%;
 	left: 50%;
 	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-250%,0);
-  font-size: 3em;
+	transform: translate3d(-50%,-50%,0);
 	font-weight: 300;
 	padding: 10px 30px;
 	text-transform: uppercase;
 	color: #333;
+}
+
+.main-title h1 {
+	font-size: 3em;
 }

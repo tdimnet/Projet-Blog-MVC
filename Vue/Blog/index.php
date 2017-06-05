@@ -7,24 +7,27 @@ include_once 'Vue/Templates/header.php';
   <div class="content">
     <div id="large-header" class="large-header">
         <canvas id="demo-canvas"></canvas>
-        <h1 class="main-title">Billet simple pour l'Alaska</span></h1>
-    </div>
-    <?php
-    // Display the list of articles
-    foreach ($articles as $article) { ?>
-      <h4>
-        <?php echo $article['titre']; ?> -
-        <small>
-          <?php echo $article['date_creation']; ?>
-        </small>
-      </h4>
+        <div class="main-title">
+          <h1>Billet simple pour l'Alaska</h1>
+          <?php
+          // Display the list of articles
+          foreach ($articles as $article) { ?>
+            <h4>
+              <?php echo $article['titre']; ?> -
+              <small>
+                <?php echo $article['date_creation']; ?>
+              </small>
+            </h4>
 
-      <a href="?Controller=Blog&&Vue=article&&id=<?php echo $article['id'] ?>">
-        Lire la suite
-      </a>
-      <br>
-    <?php }
-    ?>
+            <a href="?Controller=Blog&&Vue=article&&id=<?php echo $article['id'] ?>">
+              Lire la suite
+            </a>
+            <br>
+          <?php }
+          ?>
+        </div>
+    </div>
+
   </div>
 </div>
 
