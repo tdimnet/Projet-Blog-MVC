@@ -3,7 +3,7 @@
 include_once 'Vue/Templates/header.php';
 // include_once 'Vue/Templates/navigation.php';
 ?>
-<div class="container demo-4">
+<div class="">
   <div class="content">
     <div id="large-header" class="large-header">
         <canvas id="demo-canvas"></canvas>
