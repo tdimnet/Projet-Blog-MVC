@@ -1,5 +1,5 @@
 <h3 class="text-center">Here are all the comments of the articles</h3>
-
+<hr>
 <?php
 $Comment = new Comment();
 $comments = $Comment->findAllComments();

@@ -1,4 +1,5 @@
 <h3 class="text-center">Here is the list of all your articles</h3>
+<hr>
 <?php
 foreach ($articles as $article) {
 ?>

@@ -15,7 +15,14 @@
     }
     ?>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="./">Retourner à l'accueil</a></li>
+      <?php
+      if ($_GET['Controller'] === 'Admin') {
+      ?>
+      <li><a href="./?Controller=Admin">Admin</a></li>
+      <?php
+      }
+      ?>
+      <li><a href="./">Home</a></li>
     </ul>
   </div>
 </nav>
