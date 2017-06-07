@@ -9,6 +9,15 @@
     <?php } ?>
 
   </footer>
+  <?php
+  if ($path === 'Controller/Blog/index.php') {
+  ?>
+    <script src="./Public/js/rAF.js" charset="utf-8"></script>
+    <script src="./Public/js/background.js" charset="utf-8"></script>
+  <?php
+  }
+  ?>
+
 
   <?php
   if (isset($_GET['Controller']) && $_GET['Controller'] === 'Admin') {

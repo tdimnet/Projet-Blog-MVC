@@ -1,7 +1,5 @@
-
 <?php
 include_once 'Vue/Templates/header.php';
-// include_once 'Vue/Templates/navigation.php';
 ?>
 <div class="">
   <div class="content">
@@ -31,10 +29,6 @@ include_once 'Vue/Templates/header.php';
 
   </div>
 </div>
-
-
-<script src="./Public/js/rAF.js" charset="utf-8"></script>
-<script src="./Public/js/background.js" charset="utf-8"></script>
 <?php
 include_once 'Vue/Templates/footer.php';
 ?>
