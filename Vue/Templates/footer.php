@@ -11,7 +11,7 @@
   </footer>
 
   <?php
-  if ($_GET['Controller'] === 'Admin') {
+  if (isset($_GET['Controller']) && $_GET['Controller'] === 'Admin') {
   ?>
   <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>
