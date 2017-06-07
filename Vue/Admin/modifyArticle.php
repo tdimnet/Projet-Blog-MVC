@@ -28,23 +28,6 @@ include_once 'Vue\Templates\navigation.php';
   </form>
 </div>
 
-
-
-<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
-<script>
-tinymce.init({
-  selector: 'textarea',
-  height: 500,
-  menubar: false,
-  plugins: [
-    'advlist autolink lists link image charmap print preview anchor',
-    'searchreplace visualblocks code fullscreen',
-    'insertdatetime media table contextmenu paste code'
-  ],
-  toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
-});
-</script>
-
 <?php
 include_once 'Vue\Templates\footer.php';
 ?>
