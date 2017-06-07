@@ -1,4 +1,4 @@
-  <footer>
+  <footer class="footer">
 
     <?php
     if ($path === 'Controller/Blog/index.php') {

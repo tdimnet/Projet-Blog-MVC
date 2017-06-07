@@ -1,5 +1,4 @@
-<hr>
-<h2>Here are all the comments of the articles</h2>
+<h3 class="text-center">Here are all the comments of the articles</h3>
 
 <?php
 $Comment = new Comment();
