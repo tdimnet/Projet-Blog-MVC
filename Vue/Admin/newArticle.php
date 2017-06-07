@@ -1,24 +1,35 @@
 <?php
-
 include_once 'Vue\Templates\header.php';
+include_once 'Vue\Templates\navigation.php';
 ?>
 
-<h2>This is where I write all my articles</h2>
+<div class="container">
+  <h2>Write a new article</h2>
+  <hr>
 
-<form class="" method="post">
-  <input type="text" name="titre" placeholder="Episode title">
-  <br>
-  <textarea name="episode" rows="8" cols="80" placeholder="Episode text"></textarea>
-  <br>
-  <select name="status">
-    <option value="0">Not Publish</option>
-    <option value="1">Publish</option>
-  </select>
-  <br>
-  <button type="submit" name="button">
-    Send your episode
-  </button>
-</form>
+  <form class="" method="post">
+    <div class="form-group">
+      <label for="titre">Titre de l'épisode</label>
+      <input id="titre" class="form-control" type="text" name="titre" placeholder="Episode title">
+    </div>
+    <div class="form-group">
+      <label for="episode">Votre episode</label>
+      <textarea id="episode" class="form-control" name="episode">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label for="status">Souhaitez-vous publier l'article ?</label>
+      <select id="status" class="form-control" name="status">
+        <option value="0">Not Publish</option>
+        <option value="1">Publish</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-default" name="button">
+      Save/Send your episode
+    </button>
+  </form>
+</div>
+
 
 
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
