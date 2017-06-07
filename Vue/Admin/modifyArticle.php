@@ -1,24 +1,34 @@
 <?php
-
 include_once 'Vue\Templates\header.php';
+include_once 'Vue\Templates\navigation.php';
 ?>
 
-<h2>This is the view where you can modify your articles</h2>
-<form class="" method="post">
-  <input type="text" name="titre" placeholder="Episode title" value="<?php echo $article['titre']; ?>">
-  <br>
-  <textarea name="episode" rows="8" cols="80" placeholder="Episode text"><?php echo $article['episode']; ?></textarea>
-  <br>
-  status
-  <select name="status">
-    <option value="0">Not Publish</option>
-    <option value="1">Publish</option>
-  </select>
-  <br>
-  <button type="submit" name="button">
-    Send your episode
-  </button>
-</form>
+<div class="container">
+  <h2>Modify an existing article</h2>
+  <hr>
+  <form class="" method="post">
+    <div class="form-group">
+      <label for="titre">Titre de l'episode</label>
+      <input id="titre" class="form-control" type="text" name="titre" placeholder="Episode title" value="<?php echo $article['titre']; ?>">
+    </div>
+    <div class="form-group">
+      <label for="episode">Contenu de l'episode</label>
+      <textarea id="episode" class="form-control" name="episode" placeholder="Episode text"><?php echo $article['episode']; ?></textarea>
+    </div>
+    <div class="form-group">
+      <label for="status">Status de l'episode</label>
+      <select id="status" class="form-control" name="status">
+        <option value="0">Not Publish</option>
+        <option value="1">Publish</option>
+      </select>
+    </div>
+    <button class="btn btn-default" type="submit" name="button">
+      Modify your episode
+    </button>
+  </form>
+</div>
+
+
 
 <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
 <script>
