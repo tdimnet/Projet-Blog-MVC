@@ -89,6 +89,15 @@ class Article
     $request->execute();
   }
 
+  // Publish the article
+  function publishArticle($articleId, $status) {
+    global $bdd;
+    $request = $bdd->prepare('UPDATE articles SET status = :new_status WHERE id = :article_id');
+    $request->bindParam(':new_status', $status, PDO::PARAM_BOOL);
+    $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
+    $request->execute();
+  }
+
   // Delete an existing article
   function deleteArticle($articleId) {
     global $bdd;
