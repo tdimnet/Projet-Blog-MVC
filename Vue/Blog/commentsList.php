@@ -22,30 +22,13 @@
         <a class="btn btn-info">
           Répondre
         </a>
-        <a class="btn btn-warning">
+        <a class="btn btn-warning" href="#">
           Signaler
         </a>
     </div><!-- /.col-md-6 -->
   </div><!-- /.row -->
 
   <?php
-  // Prevoir un include pour cette FANNConnection
-  // Créer une variable pour préciser a chaque que je rentre dans la fonction => si la variable atteint son nombre max (4 niveau de reponses) => on stop
-
-  // If the array of answers of the current comment is not empty, show it
-  $answers = $Comment->findAnsweringComment($comment['id']);
-    if (!empty($answers)) {
-      var_dump($answers);
-      // The way to access the last answers (not more tree sub-levels of comment)
-      // For now, we are just fetching the first item inside the array
-      // 'last_answer' => string '1' = true / else false
-      $lasts = $Comment->findAnsweringComment($answers[0]['id']);
-      foreach ($lasts as $last) {
-        if(!empty($last)) {
-          var_dump('last answer ',$last);
-        }
-      }
-    }
   }
   ?>
 </div>

@@ -42,13 +42,23 @@ class Comment
 
 
   // Add a comment in relationship with the article_id
-  function addComment($name, $email_address, $comment, $articleId) {
+  function addComment($name, $email_address, $comment, $articleId, $abusive) {
     global $bdd;
-    $request = $bdd->prepare('INSERT INTO comments(full_name, email_address, comment, article_id) VALUES (:full_name, :email_address, :comment, :article_id)');
+    $request = $bdd->prepare('INSERT INTO comments(full_name, email_address, comment, article_id, abusive) VALUES (:full_name, :email_address, :comment, :article_id, :abusive_status)');
     $request->bindParam(':full_name', $name, PDO::PARAM_STR);
     $request->bindParam(':email_address', $email_address, PDO::PARAM_STR);
     $request->bindParam(':comment', $comment, PDO::PARAM_STR);
     $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
+    $request->bindParam(':abusive_status', $abusive, PDO::PARAM_BOOL);
     $request->execute();
-  }  
+  }
+
+  // Moderate the comment by adding a default text
+  function moderateComment($commentId, $text) {
+    global $bdd;
+    $request = $bdd->prepare('UPDATE comments SET comment = :new_comment WHERE id = :comment_id');
+    $request->bindParam(':new_comment', $text, PDO::PARAM_STR);
+    $request->bindParam(':comment_id', $commentId, PDO::PARAM_STR);
+    $request->execute();
+  }
 }

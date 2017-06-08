@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $name = $_POST['name'];
   $mail = $_POST['mail'];
   $comment = $_POST['comment'];
+  $status = 0;
 
   // then we enter the data in database
-  $Comment->addComment($name, $mail, $comment, $articleId);
-
+  $Comment->addComment($name, $mail, $comment, $articleId, $status);
   // Finally we redirect the user
   header('Location: index.php?Controller=Blog&&Vue=article&&id='. $articleId);
 }

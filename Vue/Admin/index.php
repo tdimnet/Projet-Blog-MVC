@@ -18,16 +18,21 @@ include_once 'Vue/Templates/navigation.php';
     </div><!-- /.container -->
   </div><!-- /.jumbotron -->
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <?php
         include_once 'Vue/Admin/articles.php';
         ?>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
         <?php
         include_once 'Vue/Admin/comments.php';
+        ?>
+      </div>
+      <div class="col-md-4">
+        <?php
+        include_once 'Vue/Admin/abusive.php';
         ?>
       </div>
     </div><!-- /.row -->
