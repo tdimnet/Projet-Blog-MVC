@@ -22,7 +22,7 @@
         <a class="btn btn-info">
           Répondre
         </a>
-        <a class="btn btn-warning" href="#">
+        <a class="btn btn-warning" href="?Controller=Blog&&Action=moderateComment&&commentId=<?php echo $comment['id']; ?>">
           Signaler
         </a>
     </div><!-- /.col-md-6 -->
