@@ -15,7 +15,7 @@ foreach ($signaledComments as $comment) { ?>
     <?php echo $comment['comment']; ?>
   </p>
   <p>
-    <a class="btn btn-info" href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment['id'] ?>">
+    <a class="btn btn-info" href="?Controller=Admin&&Action=unsignalComment&&id=<?php echo $comment['id'] ?>">
       No problem with it
     </a>
     <a class="btn btn-danger" href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment['id'] ?>">
