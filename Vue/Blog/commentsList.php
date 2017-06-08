@@ -18,10 +18,10 @@
           <br>
           <?php echo $comment['comment']; ?>
         </p>
-        <a class="btn btn-info">
+        <a class="btn btn-info sendComment">
           Répondre
         </a>
-        <a class="btn btn-warning" href="?Controller=Blog&&Action=moderateComment&&commentId=<?php echo $comment['id']; ?>">
+        <a class="btn btn-warning signal" href="?Controller=Blog&&Action=moderateComment&&commentId=<?php echo $comment['id']; ?>">
           Signaler
         </a>
     </div><!-- /.col-md-6 -->
