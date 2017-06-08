@@ -13,8 +13,8 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     $commentId = $_GET['commentId'];
     $status = 1;
     var_dump($_GET);
-    // $Comment->signalComment($commentId, $status);
-    // header('Location: index.php');
+    $Comment->signalComment($commentId, $status);
+    header('Location: index.php');
   }
 }
 
