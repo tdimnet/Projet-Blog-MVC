@@ -18,7 +18,7 @@
           <br>
           <?php echo $comment['comment']; ?>
         </p>
-        <a class="btn btn-info sendComment">
+        <a class="btn btn-info sendComment" data="<?php echo $comment['id']; ?>">
           Répondre
         </a>
         <a class="btn btn-warning signal" href="?Controller=Blog&&Action=moderateComment&&commentId=<?php echo $comment['id']; ?>">
