@@ -1,11 +1,10 @@
 <div class="container">
   <hr>
   <h3>Comments linked to this article</h3>
-  <div class="row">
-    <div class="col-md-6">
-      <?php
-      foreach ($comments as $comment) { ?>
-
+  <?php
+  foreach ($comments as $comment) { ?>
+    <div class="row">
+      <div class="col-md-6">
         <h4>
           Comment author : <?php echo $comment['full_name']; ?>
           <br>
@@ -27,8 +26,7 @@
         </a>
     </div><!-- /.col-md-6 -->
   </div><!-- /.row -->
-
   <?php
   }
   ?>
-</div>
+</div><!-- /.container-->

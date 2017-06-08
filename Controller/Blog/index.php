@@ -12,8 +12,9 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   if ($_GET['Controller'] === 'Blog' && $_GET['Action'] === 'moderateComment') {
     $commentId = $_GET['commentId'];
     $status = 1;
-    $Comment->signalComment($commentId, $status);
-    header('Location: index.php');
+    var_dump($_GET);
+    // $Comment->signalComment($commentId, $status);
+    // header('Location: index.php');
   }
 }
 
