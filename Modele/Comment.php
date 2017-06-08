@@ -62,12 +62,22 @@ class Comment
     $request->execute();
   }
 
-
+  // Signal the comment within the blog article view
   function signalComment($commentId, $abusive) {
     global $bdd;
     $request = $bdd->prepare('UPDATE comments SET abusive = :new_status WHERE id = :comment_id');
     $request->bindParam(':new_status', $abusive, PDO::PARAM_BOOL);
     $request->bindParam('comment_id', $abusive, PDO::PARAM_INT);
     $request->execute();
+  }
+
+
+  // Retrieve all the signal comments
+  function retrieveSignaledComments() {
+    global $bdd;
+    $request = $bdd->prepare('SELECT * FROM comments WHERE abusive = 1');
+    $request->execute();
+    $signaledComments = $request->fetchAll();
+    return $signaledComments;
   }
 }

@@ -5,6 +5,8 @@ require_once 'Modele/Comment.php';
 $Article = new Article();
 $Comment = new Comment();
 $articles = $Article->findAll();
+$comments = $Comment->findAllComments();
+$signaledComments = $Comment->retrieveSignaledComments();
 
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {

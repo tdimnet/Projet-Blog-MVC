@@ -1,8 +1,6 @@
 <h3 class="text-center">Vos cinq derniers commentaires</h3>
 <hr>
 <?php
-$Comment = new Comment();
-$comments = $Comment->findAllComments();
 foreach ($comments as $comment) { ?>
   <h4>
     Comment author : <?php echo $comment['full_name']; ?>
