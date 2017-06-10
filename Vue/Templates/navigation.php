@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <a class="navbar-brand" href="./">Billet simple pour l'Alaska</a>
     <?php
-    if ($_GET['Controller'] === 'Blog') {
+    if ($_GET['Controller'] === 'Blog' && $_GET['Vue'] === 'article') {
     ?>
     <ul class="nav navbar-nav navbar-left">
       <li>

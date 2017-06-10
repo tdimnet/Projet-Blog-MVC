@@ -1,14 +1,7 @@
   <footer class="footer">
-
-    <?php
-    if ($path === 'Controller/Blog/index.php') {
-    ?>
-      <a href="?Controller=Admin">Se connecter</a>
-    <?php } else { ?>
-      <a href="?Controller=Blog">Se deconnecter</a>
-    <?php } ?>
-
+    <a href="?Controller=Blog&&Vue=connexion">Se connecter</a>
   </footer>
+
   <?php
 if ($path === 'Controller/Blog/index.php') {
   ?>
@@ -19,7 +12,7 @@ if ($path === 'Controller/Blog/index.php') {
   <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>  
+  crossorigin="anonymous"></script>
   <script src="./Public/js/app.js" charset="utf-8"></script>
   <?php
 }
