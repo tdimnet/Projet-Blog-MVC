@@ -12,7 +12,7 @@ if (!empty($_GET['Vue'])) {
 }
 
 $path = 'Controller/'.$controller.'/'.$vue.'.php';
-var_dump($path);
+// var_dump($path);
 
 if (file_exists($path)) {
   require_once $path;

@@ -12,9 +12,9 @@ $comments = $Comment->findCommentByArticle($articleId);
 // If the comment is submitted with a POST Method
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   // We do the verifications
-  $name = $_POST['name'];
-  $mail = $_POST['mail'];
-  $comment = $_POST['comment'];
+  $name = htmlspecialchars($_POST['name']);
+  $mail = htmlspecialchars($_POST['mail']);
+  $comment = htmlspecialchars($_POST['comment']);
   $status = 0;
 
   // then we enter the data in database
