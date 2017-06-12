@@ -1,6 +1,8 @@
 <?php
 session_start();
 var_dump($_SESSION);
+$password = sha1($_SESSION['password']);
+var_dump($password);
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 

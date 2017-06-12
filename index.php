@@ -1,6 +1,11 @@
 <?php
 require_once 'Modele/config.php';
 
+// If the url does not have a controller parameter
+if (!empty($_GET) && !isset($_GET['Controller'])) {
+  header('Location: index.php');
+}
+
 $controller = 'Blog';
 if (!empty($_GET['Controller'])) {
   $controller = $_GET['Controller'];
@@ -12,7 +17,7 @@ if (!empty($_GET['Vue'])) {
 }
 
 $path = 'Controller/'.$controller.'/'.$vue.'.php';
-// var_dump($path);
+var_dump($path);
 
 if (file_exists($path)) {
   require_once $path;
