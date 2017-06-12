@@ -1,4 +1,6 @@
 <?php
+session_start();
+session_destroy();
 
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
