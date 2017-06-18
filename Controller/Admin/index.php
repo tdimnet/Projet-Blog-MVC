@@ -3,6 +3,7 @@ require_once 'Services/isLogService.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
+use Modele\Article;
 
 session_start();
 isConnected($_SESSION);
