@@ -7,8 +7,9 @@ class Article
   private $date_creation;
   private $status;
 
-
-  // Constructeur
+  // ::::::::::::::::::::::::::::::::::::::::::::::
+  // A voir avec Seb si c'est la meilleur solution
+  // ::::::::::::::::::::::::::::::::::::::::::::::
   public function __construct(array $donnees = NULL)
   {
       if (!empty($donnees)) // Si on a spécifié des valeurs, alors on hydrate l'objet.
@@ -30,6 +31,9 @@ class Article
         }
       }
   }
+  // ::::::::::::::::::::::::::::::::::::::::::::::
+  // Fin d'avoir avec Seb
+  // ::::::::::::::::::::::::::::::::::::::::::::::
 
   public function getId() {
     return $this->id;
@@ -40,13 +44,13 @@ class Article
     return $this;
   }
 
-  public function setTitle($titre) {
-    $this->title = $titre;
+  public function setTitre($titre) {
+    $this->titre = $titre;
     return $this;
   }
 
-  public function getTitle() {
-    return $this->title;
+  public function getTitre() {
+    return $this->titre;
   }
 
   public function setEpisode($episode) {

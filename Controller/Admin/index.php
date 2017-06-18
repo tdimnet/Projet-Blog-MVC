@@ -22,8 +22,8 @@ $request = $bdd->query('SELECT * FROM articles');
 
 while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
 {
-  $perso = new Article($donnees);
-  var_dump($perso, $perso->getId(), $perso->getEpisode());
+  $article = new Article($donnees);
+  var_dump($article);
 }
 
 
