@@ -8,9 +8,30 @@ session_start();
 isConnected($_SESSION);
 
 
-$Article = new Article();
+function findAll() {
+  global $bdd;
+  $request = $bdd->prepare('SELECT * FROM articles');
+  $request->execute();
+  $articles = $request->fetchAll();
+  return $articles;
+}
+
+
+// On admet que $db est un objet PDO.
+$request = $bdd->query('SELECT * FROM articles');
+
+while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
+{
+  $perso = new Article($donnees);
+  var_dump($perso, $perso->getId(), $perso->getEpisode());
+}
+
+
+
+// $Article = new Article();
 $Comment = new Comment();
-$articles = $Article->findAll();
+$Article = new Article();
+$articles = findAll();
 $comments = $Comment->findAllComments();
 $signaledComments = $Comment->retrieveSignaledComments();
 

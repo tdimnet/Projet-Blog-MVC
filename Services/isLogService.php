@@ -2,7 +2,7 @@
 require_once 'Modele/User.php';
 
 function isConnected($session) {
-  var_dump($session);
+  // var_dump($session);
 
   if (!isset($session['identifier']) || !isset($session['password'])) {
     header('Location: index.php?Controller=Blog');
