@@ -13,25 +13,16 @@ function findAll() {
   global $bdd;
   $request = $bdd->prepare('SELECT * FROM articles');
   $request->execute();
-  $articles = $request->fetchAll();
-  return $articles;
+  $articlesArray = [];
+  while($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
+    $article = new Article($donnees);
+    $articlesArray[] = $article;
+  }
+  return $articlesArray;
 }
 
 
-// On admet que $db est un objet PDO.
-$request = $bdd->query('SELECT * FROM articles');
-
-while ($donnees = $request->fetch(PDO::FETCH_ASSOC))
-{
-  $article = new Article($donnees);
-  var_dump($article);
-}
-
-
-
-// $Article = new Article();
 $Comment = new Comment();
-$Article = new Article();
 $articles = findAll();
 $comments = $Comment->findAllComments();
 $signaledComments = $Comment->retrieveSignaledComments();
