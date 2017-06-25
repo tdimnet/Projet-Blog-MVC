@@ -1,4 +1,12 @@
-<h3 class="text-center">Vos cinq derniers commentaires</h3>
+<div class="text-center">
+  <h3>Vos cinq derniers commentaires</h3>
+  <small>
+    <a href="#">
+      Voir tous vos commentaires
+    </a>
+  </small>
+</div>
+
 <hr>
 <?php
 foreach ($comments as $comment) { ?>

@@ -13,7 +13,7 @@ function findAll() {
     $article = new Article($donnees);
     $articlesArray[] = $article;
   }
-  // var_dump($articlesArray);
+
   return $articlesArray;
 }
 
@@ -29,7 +29,7 @@ function findAllPublished() {
     $article = new Article($donnees);
     $articlesArray[] = $article;
   }
-  // var_dump($articlesArray);
+
   return $articlesArray;
 }
 

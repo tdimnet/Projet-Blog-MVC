@@ -12,7 +12,7 @@ session_start();
 isConnected($_SESSION);
 
 $articles = findAll();
-$comments = findAllComments();
+$comments = findLatestComments();
 $signaledComments = findAllAbusiveComments();
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {

@@ -15,6 +15,20 @@ function findAllComments() {
 }
 
 
+// Retrieve all the articles
+function findLatestComments() {
+  global $bdd;
+  $request = $bdd->prepare('SELECT * FROM comments LIMIT 0, 5');
+  $request->execute();
+  $commentsArray = [];
+  while($donnees = $request->fetch()) {
+    $Comment = new Comment($donnees);
+    $commentsArray[] = $Comment;
+  }
+  return $commentsArray;
+}
+
+
 // Retrieve all the signal comments
 function findAllAbusiveComments() {
   global $bdd;
