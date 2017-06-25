@@ -1,12 +1,56 @@
 <?php
+
+namespace Modele;
+
 class Comment
 {
   private $id;
   private $fullName;
-  private $emailAddress;
   private $comment;
   private $articleId;
   private $answerId;
+
+
+  // Construct
+  public function __construct(array $donnees = NULL)
+  {
+      if (!empty($donnees)) // Si on a spécifié des valeurs, alors on hydrate l'objet.
+      {
+        $this->hydrate($donnees);
+      }
+  }
+
+  // Hydratation
+  public function hydrate(array $donnees = NULL)
+  {
+      foreach ($donnees as $key => $value)
+      {
+        $method = 'set'.ucfirst($key);
+
+        if (method_exists($this, $method))
+        {
+          $this->$method($value);
+        }
+      }
+  }
+
+  public function getId() {
+    return $this->id;
+  }
+
+  public function setId($id) {
+    $this->id = $id;
+    return $this;
+  }
+
+  public function getFullName() {
+    return $this->fullName;
+  }
+
+  public function setFullName($fullName) {
+    $this->fullName = $fullName;
+    return $this;
+  }
 
 
   // Return all the comments of all articles
@@ -42,11 +86,10 @@ class Comment
 
 
   // Add a comment in relationship with the article_id
-  function addComment($name, $email_address, $comment, $articleId, $abusive) {
+  function addComment($name, $comment, $articleId, $abusive) {
     global $bdd;
-    $request = $bdd->prepare('INSERT INTO comments(full_name, email_address, comment, article_id, abusive) VALUES (:full_name, :email_address, :comment, :article_id, :abusive_status)');
+    $request = $bdd->prepare('INSERT INTO comments(full_name, comment, article_id, abusive) VALUES (:full_name, :comment, :article_id, :abusive_status)');
     $request->bindParam(':full_name', $name, PDO::PARAM_STR);
-    $request->bindParam(':email_address', $email_address, PDO::PARAM_STR);
     $request->bindParam(':comment', $comment, PDO::PARAM_STR);
     $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
     $request->bindParam(':abusive_status', $abusive, PDO::PARAM_BOOL);
