@@ -5,15 +5,13 @@ use Modele\Comment;
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 require_once 'Modele/ArticleRepository.php';
+require_once 'Modele/CommentRepository.php';
 
 
 $articleId = $_GET['id'];
 $article = findOne($articleId);
-
-var_dump($article);
-
-// $article = $Article->findOne($articleId);
-// $comments = $Comment->findCommentByArticle($articleId);
+$comments = findCommentByArticle($articleId);
+var_dump($comments);
 
 // If the comment is submitted with a POST Method
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

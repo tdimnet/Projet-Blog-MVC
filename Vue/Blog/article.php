@@ -21,7 +21,7 @@ include_once 'Vue/Templates/navigation.php';
 </main>
 
 <?php
-// include_once 'Vue/Blog/commentsList.php';
+include_once 'Vue/Blog/commentsList.php';
 ?>
 
 <hr>
