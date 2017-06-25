@@ -43,24 +43,60 @@ class Comment
     return $this;
   }
 
-  public function getFullName() {
+  public function getFull_name() {
     return $this->fullName;
   }
 
-  public function setFullName($fullName) {
+  public function setfull_name($fullName) {
     $this->fullName = $fullName;
+    return $this;
+  }
+
+  public function getComment() {
+    return $this->comment;
+  }
+
+  public function setComment($comment) {
+    $this->comment = $comment;
+    return $this;
+  }
+
+  public function getArticle_id() {
+    return $this->article_id;
+  }
+
+  public function setArticle_id($article_id) {
+    $this->article_id = $article_id;
+    return $this;
+  }
+
+  public function getAnswer_id() {
+    return $this->answer_id;
+  }
+
+  public function setAnswer_id($answer_id) {
+    $this->answer_id = $answer_id;
+    return $this;
+  }
+
+  public function getAbusive() {
+    return $this->abusive;
+  }
+
+  public function setAbusive($abusive) {
+    $this->abusive = $abusive;
     return $this;
   }
 
 
   // Return all the comments of all articles
-  function findAllComments() {
-    global $bdd;
-    $request = $bdd->prepare('SELECT * FROM comments');
-    $request->execute();
-    $comments = $request->fetchAll();
-    return $comments;
-  }
+  // function findAllComments() {
+  //   global $bdd;
+  //   $request = $bdd->prepare('SELECT * FROM comments');
+  //   $request->execute();
+  //   $comments = $request->fetchAll();
+  //   return $comments;
+  // }
 
 
   // Return only the comments which match the articleId

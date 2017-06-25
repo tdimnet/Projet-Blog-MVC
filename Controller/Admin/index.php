@@ -1,7 +1,9 @@
 <?php
 use Modele\Article;
+use Modele\Comment;
 
 require_once 'Modele/ArticleRepository.php';
+require_once 'Modele/CommentRepository.php';
 require_once 'Services/isLogService.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
@@ -9,10 +11,11 @@ require_once 'Modele/Comment.php';
 session_start();
 isConnected($_SESSION);
 
+$articles = findAll();
+$comments = findAllComments();
+
 
 $Comment = new Comment();
-$articles = findAll();
-$comments = $Comment->findAllComments();
 $signaledComments = $Comment->retrieveSignaledComments();
 
 
