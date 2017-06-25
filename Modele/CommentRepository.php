@@ -14,6 +14,22 @@ function findAllComments() {
   return $commentsArray;
 }
 
+
+// Retrieve all the signal comments
+function findAllAbusiveComments() {
+  global $bdd;
+  $request = $bdd->prepare('SELECT * FROM comments WHERE abusive = 1');
+  $request->execute();
+
+  $abusiveCommentsArray = [];
+  while($donnees = $request->fetch()) {
+    $Comment = new Comment($donnees);
+    $abusiveCommentsArray[] = $Comment;
+  }
+
+  return $abusiveCommentsArray;
+}
+
 function findOneComment($commentId) {
   global $bdd;
   $request = $bdd->prepare('SELECT * FROM comments WHERE id = :id');

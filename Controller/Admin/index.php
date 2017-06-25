@@ -13,11 +13,7 @@ isConnected($_SESSION);
 
 $articles = findAll();
 $comments = findAllComments();
-
-
-$Comment = new Comment();
-$signaledComments = $Comment->retrieveSignaledComments();
-
+$signaledComments = findAllAbusiveComments();
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   // Delete function

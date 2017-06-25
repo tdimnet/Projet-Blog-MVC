@@ -90,15 +90,6 @@ class Comment
   }
 
 
-  // // Moderate the comment by adding a default text
-  // function moderateComment($commentId, $text) {
-  //   global $bdd;
-  //   $request = $bdd->prepare('UPDATE comments SET comment = :new_comment WHERE id = :comment_id');
-  //   $request->bindParam(':new_comment', $text, PDO::PARAM_STR);
-  //   $request->bindParam(':comment_id', $commentId, PDO::PARAM_INT);
-  //   $request->execute();
-  // }
-
   // Signal the comment within the blog article view
   function signalComment($commentId, $abusive) {
     global $bdd;

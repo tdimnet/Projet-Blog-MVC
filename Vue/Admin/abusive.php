@@ -3,22 +3,25 @@
 <?php
 foreach ($signaledComments as $comment) { ?>
   <h4>
-    Comment author : <?php echo $comment['full_name']; ?>
+    Comment author : <?php echo $comment->getFull_name() ?>
     <br>
-    <small>
-      Author email address : <?php echo $comment['email_address']; ?>
-    </small>
   </h4>
   <p>
     Commnent :
     <br>
-    <?php echo $comment['comment']; ?>
+    <?php echo $comment->getComment(); ?>
   </p>
   <p>
-    <a class="btn btn-info" href="?Controller=Admin&&Action=unsignalComment&&id=<?php echo $comment['id'] ?>">
+    <a
+    class="btn btn-info"
+    href="?Controller=Admin&&Action=unsignalComment&&id=<?php echo $comment->getId(); ?>"
+    >
       No problem with it
     </a>
-    <a class="btn btn-danger" href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment['id'] ?>">
+    <a
+    class="btn btn-danger"
+    href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>"
+    >
       Moderate this comment
     </a>
   </p>
