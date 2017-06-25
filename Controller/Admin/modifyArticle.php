@@ -12,7 +12,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $episode = $_POST['episode'];
   $status = $_POST['status'];
 
-  $Article->updateArticle($title, $episode, $status, $articleId);
+  $Article = new Article();
+
+  $Article->setId($articleId);
+  $Article->setTitre($title);
+  $Article->setEpisode($episode);
+  $Article->setStatus($status);
+
+  updateArticle($Article);
 
   header('Location: index.php');
 }

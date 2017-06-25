@@ -45,3 +45,17 @@ function addArticle(Article $Article) {
 
   $request->execute();
 }
+
+
+// Update the article
+function updateArticle(Article $Article) {
+  global $bdd;
+  $request = $bdd->prepare('UPDATE articles SET titre = :new_titre, episode = :new_episode, status = :new_status WHERE id = :article_id');
+
+  $request->bindValue(':new_titre', $Article->getTitre(), PDO::PARAM_STR);
+  $request->bindValue(':new_episode', $Article->getEpisode(), PDO::PARAM_STR);
+  $request->bindValue(':new_status', $Article->getStatus(), PDO::PARAM_BOOL);
+  $request->bindValue(':article_id', $Article->getId(), PDO::PARAM_INT);
+
+  $request->execute();
+}
