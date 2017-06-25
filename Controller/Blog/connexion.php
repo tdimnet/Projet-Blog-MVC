@@ -14,7 +14,6 @@ if (isset($_POST) && !empty($_POST)) {
     } else {
       session_start();
       $_SESSION['identifier'] = $identifier;
-      $_SESSION['password'] = $password;
       header('Location: index.php?Controller=Admin');
     }
   }

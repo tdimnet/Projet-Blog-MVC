@@ -10,9 +10,6 @@ class Article
   private $date_creation;
   private $status;
 
-  // ::::::::::::::::::::::::::::::::::::::::::::::
-  // A voir avec Seb si c'est la meilleur solution
-  // ::::::::::::::::::::::::::::::::::::::::::::::
   public function __construct(array $donnees = NULL)
   {
       if (!empty($donnees)) // Si on a spécifié des valeurs, alors on hydrate l'objet.
@@ -34,9 +31,6 @@ class Article
         }
       }
   }
-  // ::::::::::::::::::::::::::::::::::::::::::::::
-  // Fin d'avoir avec Seb
-  // ::::::::::::::::::::::::::::::::::::::::::::::
 
   public function getId() {
     return $this->id;

@@ -1,9 +1,10 @@
 <?php
 session_start();
-session_destroy();
 
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
+
+use Modele\Article;
 
 $Article = new Article;
 $Comment = new Comment;

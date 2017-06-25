@@ -1,25 +1,16 @@
 <?php
+
+use Modele\Article;
+require_once 'Modele/ArticleRepository.php';
 require_once 'Services/isLogService.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
-use Modele\Article;
+
 
 session_start();
 isConnected($_SESSION);
 
-
-function findAll() {
-  global $bdd;
-  $request = $bdd->prepare('SELECT * FROM articles');
-  $request->execute();
-  $articlesArray = [];
-  while($donnees = $request->fetch(PDO::FETCH_ASSOC)) {
-    $article = new Article($donnees);
-    $articlesArray[] = $article;
-  }
-  return $articlesArray;
-}
 
 
 $Comment = new Comment();
