@@ -7,21 +7,21 @@ include_once 'Vue/Templates/navigation.php';
     <div class="jumbotron text-center">
       <div class="container">
         <h1>
-          <?php echo $article['titre']; ?>
+          <?php echo $article->getTitre(); ?>
         </h1>
-        <p>
-          Date de l'episode : <?php echo $article['date_creation']; ?>
-        </p>
+        <!-- <p>
+          Date de l'episode : <?php /* echo $article->getTitre(); */ ?>
+        </p> -->
       </div>
     </div>
 
     <div class="container">
-      <?php echo $article['episode']; ?>
+      <?php echo $article->getEpisode(); ?>
     </div>
 </main>
 
 <?php
-include_once 'Vue/Blog/commentsList.php';
+// include_once 'Vue/Blog/commentsList.php';
 ?>
 
 <hr>

@@ -1,13 +1,19 @@
 <?php
+use Modele\Article;
+use Modele\Comment;
+
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
+require_once 'Modele/ArticleRepository.php';
 
-$Article = new Article();
-$Comment = new Comment();
 
 $articleId = $_GET['id'];
-$article = $Article->findOne($articleId);
-$comments = $Comment->findCommentByArticle($articleId);
+$article = findOne($articleId);
+
+var_dump($article);
+
+// $article = $Article->findOne($articleId);
+// $comments = $Comment->findCommentByArticle($articleId);
 
 // If the comment is submitted with a POST Method
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

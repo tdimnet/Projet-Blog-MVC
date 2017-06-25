@@ -6,8 +6,10 @@
     ?>
     <ul class="nav navbar-nav navbar-left">
       <li>
-        <a href="?Controller=Blog&&Vue=article&&id=<?php echo $article['id']; ?>">
-          Nom de l'episode : <?php echo $article['titre']; ?>
+        <a
+          href="?Controller=Blog&&Vue=article&&id=<?php echo $article->getId(); ?>"
+        >
+          Nom de l'episode : <?php echo $article->getTitre(); ?>
         </a>
     </li>
     </ul>

@@ -1,5 +1,6 @@
 <?php
 use Modele\Article;
+use Modele\Comment;
 
 require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/Article.php';
@@ -7,7 +8,6 @@ require_once 'Modele/Comment.php';
 
 session_start();
 
-$Comment = new Comment;
 $Articles = findAllPublished();
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {

@@ -93,7 +93,6 @@ function publishArticle(Article $Article) {
 // Delete an existing article
 function deleteArticle(Article $Article) {
   global $bdd;
-  var_dump($Article);
 
   $request = $bdd->prepare('DELETE FROM articles WHERE id= :article_id');
 
