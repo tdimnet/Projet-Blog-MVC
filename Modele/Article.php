@@ -76,21 +76,4 @@ class Article
   public function getStatus() {
     return $this->status;
   }
-
-  // Return the list of articles of have been published
-  function findAllPublished() {
-    global $bdd;
-    $request = $bdd->prepare('SELECT * FROM articles WHERE status = 1');
-    $request->execute();
-    $articles = $request->fetchAll();
-    return $articles;
-  }
-
-  // // Delete an existing article
-  // function deleteArticle($articleId) {
-  //   global $bdd;
-  //   $request = $bdd->prepare('DELETE FROM articles WHERE id=:id');
-  //   $request->bindParam(':id', $articleId, PDO::PARAM_INT);
-  //   $request->execute();
-  // }
 }

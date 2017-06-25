@@ -13,9 +13,25 @@ function findAll() {
     $article = new Article($donnees);
     $articlesArray[] = $article;
   }
+  var_dump($articlesArray);
   return $articlesArray;
 }
 
+// Return the list of articles of have been published
+function findAllPublished() {
+  global $bdd;
+
+  $request = $bdd->prepare('SELECT * FROM articles WHERE status = 1');
+  $request->execute();
+
+  $articlesArray = [];
+  while($donnees = $request->fetch()) {
+    $article = new Article($donnees);
+    $articlesArray[] = $article;
+  }
+  var_dump($articlesArray);
+  return $articlesArray;
+}
 
 // Return the article which matchs the id
 function findOne($articleId) {

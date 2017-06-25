@@ -10,15 +10,18 @@ include_once 'Vue/Templates/header.php';
           <div class="container">
             <?php
             // Display the list of articles
-            foreach ($articles as $article) { ?>
+            foreach ($Articles as $Article) { ?>
               <h4>
-                <?php echo $article['titre']; ?> -
-                <a class="btn btn-primary" href="?Controller=Blog&&Vue=article&&id=<?php echo $article['id'] ?>">
+                <?php echo $Article->getTitre(); ?> -
+                <a
+                  class="btn btn-primary"
+                  href="?Controller=Blog&&Vue=article&&id=<?php echo $Article->getId(); ?>"
+                >
                   Lire la suite
                 </a>
               </h4>
               <small>
-                <?php echo $article['date_creation']; ?>
+                <?php /*echo $article->getCreatedDate();*/ ?>
               </small>
             <?php }
             ?>

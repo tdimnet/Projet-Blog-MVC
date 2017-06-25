@@ -1,15 +1,14 @@
 <?php
-session_start();
+use Modele\Article;
 
+require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
-use Modele\Article;
+session_start();
 
-$Article = new Article;
 $Comment = new Comment;
-$articles = $Article->findAllPublished();
-
+$Articles = findAllPublished();
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   if ($_GET['Controller'] === 'Blog' && $_GET['Action'] === 'moderateComment') {
