@@ -37,8 +37,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   }
   else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment') {
     $commentId = $_GET['id'];
-    $abusive = 0;
-    $Comment->unsignalComment($commentId, $abusive);
+    unsignalComment($commentId);
     header('Location: index.php?Controller=Admin');
   }
 }

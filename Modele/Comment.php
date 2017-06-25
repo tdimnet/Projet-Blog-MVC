@@ -88,13 +88,4 @@ class Comment
     $this->abusive = $abusive;
     return $this;
   }
-
-  // Signal the comment within the blog article view
-  function unsignalComment($commentId, $abusive) {
-    global $bdd;
-    $request = $bdd->prepare('UPDATE comments SET abusive = :new_status WHERE id = :comment_id');
-    $request->bindParam(':new_status', $abusive, PDO::PARAM_BOOL);
-    $request->bindParam('comment_id', $commentId, PDO::PARAM_INT);
-    $request->execute();
-  }
 }

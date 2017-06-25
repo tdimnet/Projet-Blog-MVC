@@ -96,3 +96,17 @@ function signalComment($commentId) {
   $request->bindValue('comment_id', $comment->getId(), PDO::PARAM_INT);
   $request->execute();
 }
+
+
+// Signal the comment within the blog article view
+function unsignalComment($commentId) {
+  global $bdd;
+
+  $comment = findOneComment($commentId);
+  $comment->setAbusive(0);
+
+  $request = $bdd->prepare('UPDATE comments SET abusive = :new_status WHERE id = :comment_id');
+  $request->bindValue(':new_status', $comment->getAbusive(), PDO::PARAM_BOOL);
+  $request->bindValue('comment_id', $comment->getId(), PDO::PARAM_INT);
+  $request->execute();
+}
