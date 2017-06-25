@@ -6,10 +6,6 @@
       <input id="fullname" class="form-control" type="text" name="name" placeholder="Your name">
     </div>
     <div class="form-group">
-      <label for="email">Your e-mail address</label>
-      <input id="email" class="form-control" type="email" name="mail" placeholder="Your e-mail address">
-    </div>
-    <div class="form-group">
       <label for="comment">Your comment</label>
       <textarea id="comment" class="form-control" name="comment" placeholder="Your comment"></textarea>
     </div>

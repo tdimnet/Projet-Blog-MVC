@@ -11,18 +11,24 @@ require_once 'Modele/CommentRepository.php';
 $articleId = $_GET['id'];
 $article = findOne($articleId);
 $comments = findCommentByArticle($articleId);
-var_dump($comments);
 
 // If the comment is submitted with a POST Method
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  $Comment = new Comment();
+
   // We do the verifications
   $name = htmlspecialchars($_POST['name']);
-  $mail = htmlspecialchars($_POST['mail']);
   $comment = htmlspecialchars($_POST['comment']);
-  $status = 0;
+  $isAbusive = 0;
+
+  $Comment->setFull_name($name);
+  $Comment->setComment($comment);
+  $Comment->setArticle_id($articleId);
+  $Comment->setAbusive($isAbusive);
 
   // then we enter the data in database
-  $Comment->addComment($name, $mail, $comment, $articleId, $status);
+  addComment($Comment);
   // Finally we redirect the user
   header('Location: index.php?Controller=Blog&&Vue=article&&id='. $articleId);
 }

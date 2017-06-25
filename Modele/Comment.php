@@ -9,6 +9,7 @@ class Comment
   private $comment;
   private $articleId;
   private $answerId;
+  private $abusive;
 
 
   // Construct
@@ -47,7 +48,7 @@ class Comment
     return $this->fullName;
   }
 
-  public function setfull_name($fullName) {
+  public function setFull_name($fullName) {
     $this->fullName = $fullName;
     return $this;
   }
@@ -89,38 +90,16 @@ class Comment
   }
 
 
-  // // Return only the comments which match the articleId
-  // function findCommentByArticle($articleId) {
+  // // Add a comment in relationship with the article_id
+  // function addComment($name, $comment, $articleId, $abusive) {
   //   global $bdd;
-  //   $request = $bdd->prepare('SELECT * from comments WHERE article_id=:article_id');
+  //   $request = $bdd->prepare('INSERT INTO comments(full_name, comment, article_id, abusive) VALUES (:full_name, :comment, :article_id, :abusive_status)');
+  //   $request->bindParam(':full_name', $name, PDO::PARAM_STR);
+  //   $request->bindParam(':comment', $comment, PDO::PARAM_STR);
   //   $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
+  //   $request->bindParam(':abusive_status', $abusive, PDO::PARAM_BOOL);
   //   $request->execute();
-  //   $comments = $request->fetchAll();
-  //   return $comments;
   // }
-
-
-  // Return the answers to a comments
-  function findAnsweringComment($commentId) {
-    global $bdd;
-    $request = $bdd->prepare('SELECT * FROM comments WHERE answer_id=:answer_id');
-    $request->bindParam(':answer_id', $commentId, PDO::PARAM_INT);
-    $request->execute();
-    $answers = $request->fetchAll();
-    return $answers;
-  }
-
-
-  // Add a comment in relationship with the article_id
-  function addComment($name, $comment, $articleId, $abusive) {
-    global $bdd;
-    $request = $bdd->prepare('INSERT INTO comments(full_name, comment, article_id, abusive) VALUES (:full_name, :comment, :article_id, :abusive_status)');
-    $request->bindParam(':full_name', $name, PDO::PARAM_STR);
-    $request->bindParam(':comment', $comment, PDO::PARAM_STR);
-    $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
-    $request->bindParam(':abusive_status', $abusive, PDO::PARAM_BOOL);
-    $request->execute();
-  }
 
   // Moderate the comment by adding a default text
   function moderateComment($commentId, $text) {
