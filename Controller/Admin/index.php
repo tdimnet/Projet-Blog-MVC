@@ -36,8 +36,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   }
   else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment') {
     $commentId = $_GET['id'];
-    $text = 'Ce commentaire a été modéré';
-    $Comment->moderateComment($commentId, $text);
+    moderateComment($commentId);
     header('Location: index.php?Controller=Admin');
   }
   else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment') {

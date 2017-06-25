@@ -14,6 +14,17 @@ function findAllComments() {
   return $commentsArray;
 }
 
+function findOneComment($commentId) {
+  global $bdd;
+  $request = $bdd->prepare('SELECT * FROM comments WHERE id = :id');
+  $request->bindParam(':id', $commentId, PDO::PARAM_INT);
+  $request->execute();
+  while ($donnees = $request->fetch()) {
+    $comment = new Comment($donnees);
+  }
+  return $comment;
+}
+
 // Return only the comments which match the articleId
 function findCommentByArticle($articleId) {
   global $bdd;
@@ -43,5 +54,17 @@ function addComment(Comment $Comment) {
   $request->bindValue(':comment', $Comment->getComment(), PDO::PARAM_STR);
   $request->bindValue(':article_id', $Comment->getArticle_id(), PDO::PARAM_INT);
   $request->bindValue(':abusive_status', $Comment->getAbusive(), PDO::PARAM_BOOL);
+  $request->execute();
+}
+
+
+// Moderate the comment by adding a default text
+function moderateComment($commentId) {
+  global $bdd;
+  $comment = findOneComment($commentId);
+  $comment->setComment('Ce commentaire a été modéré');
+  $request = $bdd->prepare('UPDATE comments SET comment = :new_comment WHERE id = :comment_id');
+  $request->bindValue(':new_comment', $comment->getComment(), PDO::PARAM_STR);
+  $request->bindValue(':comment_id', $comment->getId(), PDO::PARAM_INT);
   $request->execute();
 }
