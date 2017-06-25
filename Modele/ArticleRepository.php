@@ -72,3 +72,15 @@ function publishArticle(Article $Article) {
   $request->bindValue(':article_id', $Article->getId(), PDO::PARAM_INT);
   $request->execute();
 }
+
+
+// Delete an existing article
+function deleteArticle(Article $Article) {
+  global $bdd;
+  var_dump($Article);
+
+  $request = $bdd->prepare('DELETE FROM articles WHERE id= :article_id');
+
+  $request->bindValue(':article_id', $Article->getId(), PDO::PARAM_INT);
+  $request->execute();
+}

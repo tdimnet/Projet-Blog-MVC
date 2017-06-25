@@ -20,7 +20,8 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   // Delete function
   if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle') {
     $articleId = $_GET['id'];
-    $Article->deleteArticle($articleId);
+    $Article = findOne($articleId);
+    deleteArticle($Article);
     header('Location: index.php?Controller=Admin');
   }
   // Publish function

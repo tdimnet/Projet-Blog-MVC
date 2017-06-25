@@ -86,20 +86,11 @@ class Article
     return $articles;
   }
 
-  // Publish the article
-  // function publishArticle($articleId, $status) {
+  // // Delete an existing article
+  // function deleteArticle($articleId) {
   //   global $bdd;
-  //   $request = $bdd->prepare('UPDATE articles SET status = :new_status WHERE id = :article_id');
-  //   $request->bindParam(':new_status', $status, PDO::PARAM_BOOL);
-  //   $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
+  //   $request = $bdd->prepare('DELETE FROM articles WHERE id=:id');
+  //   $request->bindParam(':id', $articleId, PDO::PARAM_INT);
   //   $request->execute();
   // }
-
-  // Delete an existing article
-  function deleteArticle($articleId) {
-    global $bdd;
-    $request = $bdd->prepare('DELETE FROM articles WHERE id=:id');
-    $request->bindParam(':id', $articleId, PDO::PARAM_INT);
-    $request->execute();
-  }
 }
