@@ -1,16 +1,13 @@
 <?php
-
 use Modele\Article;
+
 require_once 'Modele/ArticleRepository.php';
 require_once 'Services/isLogService.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
-
-
 session_start();
 isConnected($_SESSION);
-
 
 
 $Comment = new Comment();

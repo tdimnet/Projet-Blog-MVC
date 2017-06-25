@@ -77,21 +77,6 @@ class Article
     return $this->status;
   }
 
-
-
-
-
-
-
-  // Return the list of all the articles
-  // public function findAll() {
-  //   global $bdd;
-  //   $request = $bdd->prepare('SELECT * FROM articles');
-  //   $request->execute();
-  //   $articles = $request->fetchAll();
-  //   return $articles;
-  // }
-
   // Return the list of articles of have been published
   function findAllPublished() {
     global $bdd;
@@ -111,16 +96,6 @@ class Article
     return $article;
   }
 
-  // Write a new episode into the bdd
-  function addArticle($titre, $episode, $date_creation, $status) {
-    global $bdd;
-    $request = $bdd->prepare('INSERT INTO articles(titre, episode, date_creation, status) VALUES (:titre, :episode, :date_creation, :status)');
-    $request->bindParam(':titre', $titre, PDO::PARAM_STR);
-    $request->bindParam(':episode', $episode, PDO::PARAM_STR);
-    $request->bindParam(':date_creation', $date_creation);
-    $request->bindParam(':status', $status, PDO::PARAM_BOOL);
-    $request->execute();
-  }
 
   // Update the article
   function updateArticle($titre, $episode, $status, $articleId) {
