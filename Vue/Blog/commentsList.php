@@ -24,7 +24,7 @@
 
         <a
           class="btn btn-warning signal"
-          href="?Controller=Blog&&Action=moderateComment&&commentId=<?php echo $comment->getId(); ?>"
+          href="?Controller=Blog&&Action=moderateComment&&commentId=<?php echo $comment->getId(); ?>&&articleId=<?php echo $article->getId(); ?>"
         >
           Signaler
         </a>
