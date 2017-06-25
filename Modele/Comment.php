@@ -107,13 +107,4 @@ class Comment
     $request->bindParam('comment_id', $commentId, PDO::PARAM_INT);
     $request->execute();
   }
-
-  // Retrieve all the signal comments
-  function retrieveSignaledComments() {
-    global $bdd;
-    $request = $bdd->prepare('SELECT * FROM comments WHERE abusive = 1');
-    $request->execute();
-    $signaledComments = $request->fetchAll();
-    return $signaledComments;
-  }
 }
