@@ -59,3 +59,16 @@ function updateArticle(Article $Article) {
 
   $request->execute();
 }
+
+
+// Publish the article
+function publishArticle(Article $Article) {
+  global $bdd;
+  $Article->setStatus(1);
+
+  $request = $bdd->prepare('UPDATE articles SET status = :new_status WHERE id = :article_id');
+
+  $request->bindValue(':new_status', $Article->getStatus(), PDO::PARAM_BOOL);
+  $request->bindValue(':article_id', $Article->getId(), PDO::PARAM_INT);
+  $request->execute();
+}

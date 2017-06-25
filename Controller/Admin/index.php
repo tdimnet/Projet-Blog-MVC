@@ -26,8 +26,8 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   // Publish function
   else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'publishArticle') {
     $articleId = $_GET['id'];
-    $status = 1;
-    $Article->publishArticle($articleId, $status);
+    $Article = findOne($articleId);
+    publishArticle($Article);
     header('Location: index.php?Controller=Admin');
   }
   else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment') {
