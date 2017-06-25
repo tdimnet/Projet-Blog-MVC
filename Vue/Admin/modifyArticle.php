@@ -9,11 +9,11 @@ include_once 'Vue\Templates\navigation.php';
   <form class="" method="post">
     <div class="form-group">
       <label for="titre">Titre de l'episode</label>
-      <input id="titre" class="form-control" type="text" name="titre" placeholder="Episode title" value="<?php echo $article['titre']; ?>">
+      <input id="titre" class="form-control" type="text" name="titre" placeholder="Episode title" value="<?php echo $article->getTitre(); ?>">
     </div>
     <div class="form-group">
       <label for="episode">Contenu de l'episode</label>
-      <textarea id="episode" class="form-control" name="episode" placeholder="Episode text"><?php echo $article['episode']; ?></textarea>
+      <textarea id="episode" class="form-control" name="episode" placeholder="Episode text"><?php echo $article->getEpisode(); ?></textarea>
     </div>
     <div class="form-group">
       <label for="status">Status de l'episode</label>

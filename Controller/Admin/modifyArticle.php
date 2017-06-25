@@ -1,10 +1,11 @@
 <?php
+use Modele\Article;
+
 require_once 'Modele/Article.php';
+require_once 'Modele/ArticleRepository.php';
 
 $articleId = $_GET['id'];
-
-$Article = new Article();
-$article = $Article->findOne($articleId);
+$article = findOne($articleId);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $title = $_POST['titre'];

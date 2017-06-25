@@ -4,6 +4,7 @@ use Modele\Article;
 // Retrieve all the articles
 function findAll() {
   global $bdd;
+
   $request = $bdd->prepare('SELECT * FROM articles');
   $request->execute();
   $articlesArray = [];
@@ -13,6 +14,22 @@ function findAll() {
     $articlesArray[] = $article;
   }
   return $articlesArray;
+}
+
+
+// Return the article which matchs the id
+function findOne($articleId) {
+  global $bdd;
+
+  $request = $bdd->prepare('SELECT * FROM articles WHERE id=:id');
+  $request->bindParam(':id', $articleId, PDO::PARAM_INT);
+  $request->execute();
+
+  while ($donnees = $request->fetch()) {
+    $article = new Article($donnees);
+  }
+
+  return $article;
 }
 
 

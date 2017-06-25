@@ -86,15 +86,15 @@ class Article
     return $articles;
   }
 
-  // Return the article of match the id
-  function findOne($articleId) {
-    global $bdd;
-    $request = $bdd->prepare('SELECT * FROM articles WHERE id=:id');
-    $request->bindParam(':id', $articleId, PDO::PARAM_INT);
-    $request->execute();
-    $article = $request->fetch();
-    return $article;
-  }
+  // // Return the article of match the id
+  // function findOne($articleId) {
+  //   global $bdd;
+  //   $request = $bdd->prepare('SELECT * FROM articles WHERE id=:id');
+  //   $request->bindParam(':id', $articleId, PDO::PARAM_INT);
+  //   $request->execute();
+  //   $article = $request->fetch();
+  //   return $article;
+  // }
 
 
   // Update the article
