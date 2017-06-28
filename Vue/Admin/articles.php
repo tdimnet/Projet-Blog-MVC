@@ -1,9 +1,8 @@
 <h3 class="text-center">Vos articles</h3>
-<hr>
 <?php
 foreach ($articles as $article) {
 ?>
-
+<hr>
 <h4>Titre de l'article : <?php echo $article->getTitre(); ?></h4>
 <h5>Status :
   <em><?php if ($article->getStatus()) { echo 'published'; } else { echo 'not published'; } ?></em>

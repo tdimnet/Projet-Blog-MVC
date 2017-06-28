@@ -21,7 +21,11 @@
       <?php
       if ($_GET['Controller'] === 'Admin') {
       ?>
-      <li><a href="./?Controller=Admin">Admin</a></li>
+      <li>
+        <a href="./?Controller=Admin">
+          Admin
+        </a>
+      </li>
       <li><a href="./?Controller=Admin&&vue=deconnexion">Se deconnecter</a></li>
       <?php
       }

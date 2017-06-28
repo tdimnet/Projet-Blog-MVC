@@ -1,7 +1,7 @@
 <div class="text-center">
   <h3>Vos cinq derniers commentaires</h3>
   <small>
-    <a href="#">
+    <a href="?Controller=Admin&&Action=showAllComments">
       Voir tous vos commentaires
     </a>
   </small>

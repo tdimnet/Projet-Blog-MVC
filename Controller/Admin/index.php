@@ -30,11 +30,13 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     publishArticle($Article);
     header('Location: index.php?Controller=Admin');
   }
+  // Moderate comment function
   else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment') {
     $commentId = $_GET['id'];
     moderateComment($commentId);
     header('Location: index.php?Controller=Admin');
   }
+  // Unsignal comment function
   else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment') {
     $commentId = $_GET['id'];
     unsignalComment($commentId);
@@ -42,5 +44,11 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   }
 }
 
-
-require_once 'Vue/Admin/index.php';
+if ($_GET['Controller'] === 'Admin' && isset($_GET['Action'])) {
+  if ($_GET['Action'] === 'showAllComments') {
+    $allComments = findAllComments();
+    require_once 'Vue/Admin/allComments.php';
+  }
+} else {
+  require_once 'Vue/Admin/index.php';
+}
