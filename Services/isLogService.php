@@ -3,10 +3,8 @@ use Modele\User;
 require_once 'Modele/User.php';
 require_once 'Modele/UserRepository.php';
 
+// Check if the user is connected or not within the admin panel
 function isConnected($session) {
-  // var_dump($session);
-
-  // Pas besoin de stocker le mot de passe en session
   if (!isset($session['identifier'])) {
     header('Location: index.php?Controller=Blog');
   } else {
