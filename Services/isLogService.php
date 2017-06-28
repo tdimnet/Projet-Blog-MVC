@@ -1,5 +1,7 @@
 <?php
+use Modele\User;
 require_once 'Modele/User.php';
+require_once 'Modele/UserRepository.php';
 
 function isConnected($session) {
   // var_dump($session);
@@ -9,8 +11,7 @@ function isConnected($session) {
     header('Location: index.php?Controller=Blog');
   } else {
     $identifier = $session['identifier'];
-    $User = new User();
-    $user = $User->findUser($identifier);
+    $user = findUser($identifier);
     if (!$user) {
       header('Location: index.php?Controller=Blog');
     }
