@@ -9,7 +9,7 @@ require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
 session_start();
-isConnected($_SESSION);
+// isConnected($_SESSION);
 
 $articles = findAll();
 $comments = findLatestComments();
