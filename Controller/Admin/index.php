@@ -11,13 +11,19 @@ require_once 'Modele/Comment.php';
 session_start();
 isConnected($_SESSION);
 
-// Load this page and the comment when you want to show all the comments
+
+
 if ($_GET['Controller'] === 'Admin' && isset($_GET['Action'])) {
+  // Load this page and the comment when you want to show all the comments
   if ($_GET['Action'] === 'showAllComments') {
     // Load all the comments
     $allComments = findAllComments();
     // Then load the view
     require_once 'Vue/Admin/allComments.php';
+  // If the given actions is deconnexion, disconnect the user
+  } else if ($_GET['Action'] === 'deconnexion') {
+    session_destroy();
+    header('Location: index.php');
   }
 // If you do not want to show all the comments, this is the regular admin panel
 } else {

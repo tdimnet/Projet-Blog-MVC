@@ -26,7 +26,7 @@
           Admin
         </a>
       </li>
-      <li><a href="./?Controller=Admin&&vue=deconnexion">Se deconnecter</a></li>
+      <li><a href="?Controller=Admin&&Action=deconnexion">Se deconnecter</a></li>
       <?php
       }
       ?>
