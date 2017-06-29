@@ -11,9 +11,6 @@ require_once 'Modele/Comment.php';
 session_start();
 isConnected($_SESSION);
 
-
-
-
 // Load this page and the comment when you want to show all the comments
 if ($_GET['Controller'] === 'Admin' && isset($_GET['Action'])) {
   if ($_GET['Action'] === 'showAllComments') {
