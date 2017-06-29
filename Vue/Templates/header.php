@@ -1,3 +1,6 @@
+<?php
+require_once 'Services/flashMessagesService.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,3 +15,13 @@
 
 </head>
 <body>
+  <header>
+    <?php
+      if (isset($_SESSION['flashbag'])) { ?>
+        <div class="alert alert-success text-center">
+          <?php getFlash(); ?>
+        </div>
+    <?php
+    }
+    ?>
+  </header>

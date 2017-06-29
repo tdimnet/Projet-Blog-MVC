@@ -2,6 +2,7 @@
 use Modele\Article;
 use Modele\Comment;
 
+require_once 'Services/flashMessagesService.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/CommentRepository.php';
 require_once 'Services/isLogService.php';
@@ -11,8 +12,6 @@ require_once 'Modele/Comment.php';
 session_start();
 isConnected($_SESSION);
 
-
-
 if ($_GET['Controller'] === 'Admin' && isset($_GET['Action'])) {
   // Load this page and the comment when you want to show all the comments
   if ($_GET['Action'] === 'showAllComments') {
@@ -20,9 +19,12 @@ if ($_GET['Controller'] === 'Admin' && isset($_GET['Action'])) {
     $allComments = findAllComments();
     // Then load the view
     require_once 'Vue/Admin/allComments.php';
-  // If the given actions is deconnexion, disconnect the user
+  // If the given actions is deconnexion
   } else if ($_GET['Action'] === 'deconnexion') {
-    session_destroy();
+    // We remove the user identifier
+    unset($_SESSION['identifier']);
+    // We add the flash message and go to the home page
+    addFlash('Vous êtes bien deconnecté !');
     header('Location: index.php');
   }
 // If you do not want to show all the comments, this is the regular admin panel
