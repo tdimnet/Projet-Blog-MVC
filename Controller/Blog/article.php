@@ -10,27 +10,37 @@ require_once 'Modele/CommentRepository.php';
 
 $articleId = $_GET['id'];
 $article = findOne($articleId);
-$comments = findCommentByArticle($articleId);
 
-// If the comment is submitted with a POST Method
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+// If the articleId isset and exists, we can access it
+if (isset($articleId) && !is_null($article)) {
+  $comments = findCommentByArticle($articleId);
 
-  $Comment = new Comment();
+  // If the comment is submitted with a POST Method
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $Comment = new Comment();
 
-  // We do the verifications
-  $name = htmlspecialchars($_POST['name']);
-  $comment = htmlspecialchars($_POST['comment']);
-  $isAbusive = 0;
+    // We do the verifications
+    $name = trim(htmlspecialchars($_POST['name']));
+    $comment = trim(htmlspecialchars($_POST['comment']));
+    $isAbusive = 0;
 
-  $Comment->setFull_name($name);
-  $Comment->setComment($comment);
-  $Comment->setArticle_id($articleId);
-  $Comment->setAbusive($isAbusive);
+    // If the data is empty, we redirect the user
+    if (strlen($name) === 0 || strlen($comment) === 0) {
+      header('Location: index.php?Controller=Blog&&Vue=article&&id='. $articleId);
+    // Else it goes on database
+    } else {
+      $Comment->setFull_name($name);
+      $Comment->setComment($comment);
+      $Comment->setArticle_id($articleId);
+      $Comment->setAbusive($isAbusive);
 
-  // then we enter the data in database
-  addComment($Comment);
-  // Finally we redirect the user
-  header('Location: index.php?Controller=Blog&&Vue=article&&id='. $articleId);
+      // then we enter the data in database
+      addComment($Comment);
+      // Finally we redirect the user
+      header('Location: index.php?Controller=Blog&&Vue=article&&id='. $articleId);
+    }
+  }
+  require_once 'Vue/Blog/article.php';
+} else {
+  header('Location: index.php');
 }
-
-require_once 'Vue/Blog/article.php';

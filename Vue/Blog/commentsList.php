@@ -29,6 +29,11 @@
           Signaler
         </a>
     </div><!-- /.col-md-6 -->
+    <?php
+    var_dump($comment->getId());
+    $answers = findAnsweringComments($comment->getId());
+    var_dump($answers);
+    ?>
   </div><!-- /.row -->
   <?php
   }

@@ -71,6 +71,14 @@ function findCommentByArticle($articleId) {
   return $commentsArray;
 }
 
+function findAnsweringComments($answerId) {
+  global $bdd;
+  $request = $bdd->prepare('SELECT * FROM comments WHERE answer_id = :answer_id');
+  $request->bindParam(':answer_id', $answerId, PDO::PARAM_INT);
+  $request->execute();
+  $data = $request->fetchAll();
+  var_dump($data);
+}
 
 // Add a comment in relationship with the article_id
 function addComment(Comment $Comment) {
