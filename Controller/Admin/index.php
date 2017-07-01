@@ -13,11 +13,11 @@ session_start();
 isConnected($_SESSION);
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
-  // Load this page and the comment when you want to show all the comments
+
+  // Show all comments function
   if ($_GET['Action'] === 'showAllComments') {
     // Load all the comments
     $allComments = findAllComments();
-
 
   // Deconnexion function
   } else if ($_GET['Action'] === 'deconnexion') {
@@ -55,16 +55,15 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   }
 } // /if()
 
-
+// Show all the comments view
 if (isset($_GET['Controller']) && isset($_GET['Action']) && ($_GET['Action'] === 'showAllComments')) {
   // Then load the view
   require_once 'Vue/Admin/allComments.php';
+
+// Show the admin panel and its data within
 } else {
-  // Then do all the comments from the database
   $articles = findAll();
   $comments = findLatestComments();
   $signaledComments = findAllAbusiveComments();
-
-  // Then load the view
   require_once 'Vue/Admin/index.php';
 }
