@@ -19,6 +19,7 @@
           class="btn btn-info sendComment"
           data="<?php echo $comment->getId(); ?>"
         >
+        <!-- Hidden avec le champ du commentaire (on verifie en bdd aue le commentaire n'a pas plus de trois niveaux) -->
           Répondre
         </a>
 
@@ -29,11 +30,6 @@
           Signaler
         </a>
     </div><!-- /.col-md-6 -->
-    <?php
-    var_dump($comment->getId());
-    $answers = findAnsweringComments($comment->getId());
-    var_dump($answers);
-    ?>
   </div><!-- /.row -->
   <?php
   }

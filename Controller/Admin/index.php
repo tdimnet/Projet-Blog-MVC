@@ -2,6 +2,8 @@
 use Modele\Article;
 use Modele\Comment;
 
+// Enlever les majuscules des repositoryrs
+
 require_once 'Services/flashMessagesService.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/CommentRepository.php';

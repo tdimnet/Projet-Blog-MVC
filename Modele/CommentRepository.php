@@ -71,13 +71,35 @@ function findCommentByArticle($articleId) {
   return $commentsArray;
 }
 
-function findAnsweringComments($answerId) {
+function findCommentsWithAnsweringComments($articleId) {
   global $bdd;
-  $request = $bdd->prepare('SELECT * FROM comments WHERE answer_id = :answer_id');
-  $request->bindParam(':answer_id', $answerId, PDO::PARAM_INT);
+  $request = $bdd->prepare('SELECT
+    c0.id AS c0_id, c0.full_name AS c0_fullName, c0.comment AS c0_comment, c0.abusive AS c0_abusive,
+    c1.id AS c1_id, c1.full_name AS c1_fullName, c1.comment AS c1_comment, c1.abusive AS c1_abusive,
+    c2.id AS c2_id, c2.full_name AS c2_fullName, c2.comment AS c2_comment, c2.abusive AS c2_abusive,
+    c3.id AS c3_id, c3.full_name AS c3_fullName, c3.comment AS c3_comment, c3.abusive AS c3_abusive
+    FROM comments c0
+    LEFT JOIN comments c1 ON c1.answer_id = c0.id
+    LEFT JOIN comments c2 ON c2.answer_id = c1.id
+    LEFT JOIN comments c3 ON c3.answer_id = c2.id
+    WHERE c0.article_id = :article_id AND c0.answer_id IS NULL
+  ');
+  $request->bindParam(':article_id', $articleId, PDO::PARAM_INT);
   $request->execute();
-  $data = $request->fetchAll();
-  var_dump($data);
+
+  $commentsTable = [];
+  while ($donnees = $request->fetch()) {
+    $comment = new Comment($donnees, 'c', 0);
+    if (isset($commentsTable[$comment->getId()])) {
+      $commentsTable[$comment->getId()]->fusion($comment);
+    } else {
+      $commentsTable[$comment->getId()] = $comment;
+    }
+  }
+
+  echo "<pre>";
+  print_r($commentsTable);
+  echo "</pre>";
 }
 
 // Add a comment in relationship with the article_id
