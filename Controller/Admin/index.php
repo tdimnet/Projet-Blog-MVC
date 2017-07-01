@@ -12,58 +12,55 @@ require_once 'Modele/Comment.php';
 session_start();
 isConnected($_SESSION);
 
-if ($_GET['Controller'] === 'Admin' && isset($_GET['Action'])) {
+if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   // Load this page and the comment when you want to show all the comments
   if ($_GET['Action'] === 'showAllComments') {
     // Load all the comments
     $allComments = findAllComments();
     // Then load the view
     require_once 'Vue/Admin/allComments.php';
-  // If the given actions is deconnexion
+
+  // Deconnexion function
   } else if ($_GET['Action'] === 'deconnexion') {
     // We remove the user identifier
     unset($_SESSION['identifier']);
     // We add the flash message and go to the home page
     addFlash('Vous êtes bien deconnecté !');
     header('Location: index.php');
-  }
-// If you do not want to show all the comments, this is the regular admin panel
-} else {
-  // Then check the get requests
-  if (isset($_GET['Controller']) && isset($_GET['Action'])) {
+
     // Delete function
-    if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle') {
-      $articleId = $_GET['id'];
-      $Article = findOne($articleId);
-      deleteArticle($Article);
-      header('Location: index.php?Controller=Admin');
-    }
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle') {
+    $articleId = $_GET['id'];
+    $Article = findOne($articleId);
+    deleteArticle($Article);
+    header('Location: index.php?Controller=Admin');
+
     // Publish function
-    else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'publishArticle') {
-      $articleId = $_GET['id'];
-      $Article = findOne($articleId);
-      publishArticle($Article);
-      header('Location: index.php?Controller=Admin');
-    }
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'publishArticle') {
+    $articleId = $_GET['id'];
+    $Article = findOne($articleId);
+    publishArticle($Article);
+    header('Location: index.php?Controller=Admin');
+
     // Moderate comment function
-    else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment') {
-      $commentId = $_GET['id'];
-      moderateComment($commentId);
-      header('Location: index.php?Controller=Admin');
-    }
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment') {
+    $commentId = $_GET['id'];
+    moderateComment($commentId);
+    header('Location: index.php?Controller=Admin');
+
     // Unsignal comment function
-    else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment') {
-      $commentId = $_GET['id'];
-      unsignalComment($commentId);
-      header('Location: index.php?Controller=Admin');
-    }
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment') {
+    $commentId = $_GET['id'];
+    unsignalComment($commentId);
+    header('Location: index.php?Controller=Admin');
   }
+} // /if()
 
-  // Then do all the comments from the database
-  $articles = findAll();
-  $comments = findLatestComments();
-  $signaledComments = findAllAbusiveComments();
 
-  // Then load the view
-  require_once 'Vue/Admin/index.php';
-}
+// Then do all the comments from the database
+$articles = findAll();
+$comments = findLatestComments();
+$signaledComments = findAllAbusiveComments();
+
+// Then load the view
+require_once 'Vue/Admin/index.php';
