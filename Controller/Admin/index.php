@@ -17,8 +17,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   if ($_GET['Action'] === 'showAllComments') {
     // Load all the comments
     $allComments = findAllComments();
-    // Then load the view
-    require_once 'Vue/Admin/allComments.php';
+
 
   // Deconnexion function
   } else if ($_GET['Action'] === 'deconnexion') {
@@ -57,10 +56,15 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
 } // /if()
 
 
-// Then do all the comments from the database
-$articles = findAll();
-$comments = findLatestComments();
-$signaledComments = findAllAbusiveComments();
+if (isset($_GET['Controller']) && isset($_GET['Action']) && ($_GET['Action'] === 'showAllComments')) {
+  // Then load the view
+  require_once 'Vue/Admin/allComments.php';
+} else {
+  // Then do all the comments from the database
+  $articles = findAll();
+  $comments = findLatestComments();
+  $signaledComments = findAllAbusiveComments();
 
-// Then load the view
-require_once 'Vue/Admin/index.php';
+  // Then load the view
+  require_once 'Vue/Admin/index.php';
+}
