@@ -17,9 +17,9 @@ require_once 'Services/flashMessagesService.php';
 <body>
   <header>
     <?php
-      if (isset($_SESSION['flashbag'])) { ?>
+      if (isset($flashMessage)) { ?>
         <div class="alert alert-success text-center">
-          <?php getFlash(); ?>
+          <?php echo $flashMessage; ?>
         </div>
     <?php
     }

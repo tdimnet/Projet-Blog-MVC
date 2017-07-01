@@ -26,7 +26,6 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     // We add the flash message and go to the home page
     addFlash('Vous êtes bien deconnecté !');
     header('Location: index.php');
-
     // Delete function
   } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle') {
     $articleId = $_GET['id'];

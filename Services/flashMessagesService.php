@@ -5,6 +5,7 @@ function addFlash($message) {
 }
 
 function getFlash() {
-  echo $_SESSION['flashbag'];
+  $message = $_SESSION['flashbag'];
   unset($_SESSION['flashbag']);
+  return $message;
 }
