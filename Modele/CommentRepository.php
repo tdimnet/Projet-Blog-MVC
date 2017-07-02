@@ -97,16 +97,12 @@ function findCommentsWithAnsweringComments($articleId) {
     }
   }
 
-  echo "<pre>";
-  print_r($commentsTable);
-  echo "</pre>";
+  return $commentsTable;
 }
 
 // Add a comment in relationship with the article_id
 function addComment(Comment $Comment) {
   global $bdd;
-
-  var_dump($Comment);
 
   $request = $bdd->prepare('INSERT INTO comments(full_name, comment, article_id, abusive) VALUES (:full_name, :comment, :article_id, :abusive_status)');
 

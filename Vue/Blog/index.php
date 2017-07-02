@@ -20,9 +20,6 @@ include_once 'Vue/Templates/header.php';
                   Lire la suite
                 </a>
               </h4>
-              <small>
-                <?php /*echo $article->getCreatedDate();*/ ?>
-              </small>
             <?php }
             ?>
           </div>

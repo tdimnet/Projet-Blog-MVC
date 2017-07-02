@@ -32,7 +32,7 @@ $article = findOne($articleId);
 // If the articleId isset and exists, we can access it
 if (isset($articleId) && !is_null($article)) {
   $comments = findCommentByArticle($articleId);
-  findCommentsWithAnsweringComments($articleId);
+  $commentAnswers = findCommentsWithAnsweringComments($articleId);
 
   // If the comment is submitted with a POST Method
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {

@@ -9,9 +9,6 @@ include_once 'Vue/Templates/navigation.php';
         <h1>
           <?php echo $article->getTitre(); ?>
         </h1>
-        <!-- <p>
-          Date de l'episode : <?php /* echo $article->getTitre(); */ ?>
-        </p> -->
       </div>
     </div>
 
@@ -22,6 +19,9 @@ include_once 'Vue/Templates/navigation.php';
 
 <?php
 include_once 'Vue/Blog/commentsList.php';
+
+var_dump($commentAnswers);
+
 ?>
 
 <hr>
