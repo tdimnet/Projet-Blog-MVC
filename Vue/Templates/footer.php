@@ -40,5 +40,16 @@ if ($path === 'Controller/Blog/index.php') {
   }
   ?>
 
+  <?php
+  // The include script for adding new comments
+    if (isset($_GET['Controller']) && isset($_GET['Vue']) && isset($_GET['id'])) {
+      if ($_GET['Controller'] === 'Blog' && $_GET['Vue'] === 'article') {
+        ?>
+          <script src="./Public/js/addComment.js" charset="utf-8"></script>
+        <?php
+      }
+    }
+  ?>
+
 </body>
 </html>

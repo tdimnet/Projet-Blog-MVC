@@ -20,9 +20,9 @@ include_once 'Vue/Templates/navigation.php';
 <?php
 include_once 'Vue/Blog/commentsList.php';
 
-var_dump($commentAnswers);
-
+// var_dump($commentAnswers);
 ?>
+
 
 <hr>
 
