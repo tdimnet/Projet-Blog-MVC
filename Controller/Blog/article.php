@@ -36,8 +36,6 @@ if (isset($articleId) && !is_null($article)) {
 
   // If the comment is submitted with a POST Method
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $Comment = new Comment();
-
     // We do the verifications
     $name = trim(htmlspecialchars($_POST['name']));
     $comment = trim(htmlspecialchars($_POST['comment']));
@@ -49,6 +47,9 @@ if (isset($articleId) && !is_null($article)) {
       header('Location: index.php?Controller=Blog&&Vue=article&&id='. $articleId);
     // Else it goes on database
     } else {
+
+      $Comment = new Comment();
+
       $Comment->setFull_name($name);
       $Comment->setComment($comment);
       $Comment->setArticle_id($articleId);

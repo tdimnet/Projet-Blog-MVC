@@ -7,21 +7,37 @@ require_once 'Modele/ArticleRepository.php';
 $articleId = $_GET['id'];
 $article = findOne($articleId);
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-  $title = $_POST['titre'];
-  $episode = $_POST['episode'];
-  $status = $_POST['status'];
+if (isset($articleId) && !is_null($article)) {
+  require_once 'Vue\Admin\modifyArticle.php';
 
-  $Article = new Article();
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-  $Article->setId($articleId);
-  $Article->setTitre($title);
-  $Article->setEpisode($episode);
-  $Article->setStatus($status);
+    if (strlen($title) === 0 || strlen($episode) === 0) {
+      header('Location: index.php?Controller=Admin');
+    }
 
-  updateArticle($Article);
+    $title = $_POST['titre'];
+    $episode = $_POST['episode'];
+    $status = $_POST['status'];
 
-  header('Location: index.php');
+    $title = trim(htmlspecialchars($_POST['title']));
+    $episode = trim(htmlspecialchars($_POST['episode']));
+
+    if (strlen($title) === 0 || strlen($episode) === 0) {
+      header('Location: index.php?Controller=Admin');
+    } else {
+      $Article = new Article();
+
+      $Article->setId($articleId);
+      $Article->setTitre($title);
+      $Article->setEpisode($episode);
+      $Article->setStatus($status);
+
+      updateArticle($Article);
+
+      header('Location: index.php?Controller=Admin');
+    }
+  }
+} else {
+  header('Location: index.php?Controller=Admin');
 }
-
-require_once 'Vue\Admin\modifyArticle.php';
