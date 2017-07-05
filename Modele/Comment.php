@@ -10,6 +10,7 @@ class Comment
   private $articleId;
   private $answerId;
   private $abusive;
+  private $moderate;
   private $answers;
 
 
@@ -130,6 +131,15 @@ class Comment
 
   public function setAbusive($abusive) {
     $this->abusive = $abusive;
+    return $this;
+  }
+
+  public function getModerate() {
+    return $this->moderate;
+  }
+
+  public function setModerate($moderate) {
+    $this->moderate = $moderate;
     return $this;
   }
 

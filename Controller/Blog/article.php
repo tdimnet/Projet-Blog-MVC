@@ -42,6 +42,7 @@ if (isset($articleId) && !is_null($article)) {
     $name = trim(htmlspecialchars($_POST['name']));
     $comment = trim(htmlspecialchars($_POST['comment']));
     $isAbusive = 0;
+    $isModerate = 0;
 
     // If the data is empty, we redirect the user
     if (strlen($name) === 0 || strlen($comment) === 0) {
@@ -52,6 +53,7 @@ if (isset($articleId) && !is_null($article)) {
       $Comment->setComment($comment);
       $Comment->setArticle_id($articleId);
       $Comment->setAbusive($isAbusive);
+      $Comment->setModerate($isModerate);
 
       // then we enter the data in database
       addComment($Comment);

@@ -18,7 +18,7 @@ function findAllComments() {
 // Retrieve all the articles
 function findLatestComments() {
   global $bdd;
-  $request = $bdd->prepare('SELECT * FROM comments LIMIT 0, 5');
+  $request = $bdd->prepare('SELECT * FROM comments ORDER BY id DESC LIMIT 0, 5');
   $request->execute();
   $commentsArray = [];
   while($donnees = $request->fetch()) {
@@ -118,9 +118,9 @@ function addComment(Comment $Comment) {
 function moderateComment($commentId) {
   global $bdd;
   $comment = findOneComment($commentId);
-  $comment->setComment('Ce commentaire a été modéré');
-  $request = $bdd->prepare('UPDATE comments SET comment = :new_comment WHERE id = :comment_id');
-  $request->bindValue(':new_comment', $comment->getComment(), PDO::PARAM_STR);
+  $comment->setModerate(1);
+  $request = $bdd->prepare('UPDATE comments SET moderate = :new_moderate WHERE id = :comment_id');
+  $request->bindValue(':new_moderate', $comment->getModerate(), PDO::PARAM_BOOL);
   $request->bindValue(':comment_id', $comment->getId(), PDO::PARAM_INT);
   $request->execute();
 }

@@ -13,7 +13,14 @@
         <p>
           Commnent :
           <br>
-          <?php echo $comment->getComment() ?>
+          <?php
+           if ($comment->getModerate()) {
+              echo "Ce commentaire a été modéré";
+           } else {
+             echo $comment->getComment();   
+           }
+
+          ?>
         </p>
         <a
           class="btn btn-info sendComment"
