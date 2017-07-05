@@ -126,6 +126,18 @@ function moderateComment($commentId) {
 }
 
 
+// Retrieve the original state of the comment
+function unmoderateComment($commentId) {
+  global $bdd;
+  $comment = findOneComment($commentId);
+  $comment->setModerate(0);
+  $request = $bdd->prepare('UPDATE comments SET moderate = :new_moderate WHERE id = :comment_id');
+  $request->bindValue(':new_moderate', $comment->getModerate(), PDO::PARAM_BOOL);
+  $request->bindValue(':comment_id', $comment->getId(), PDO::PARAM_INT);
+  $request->execute();
+}
+
+
 // Signal the comment within the blog article view
 function signalComment($commentId) {
   global $bdd;

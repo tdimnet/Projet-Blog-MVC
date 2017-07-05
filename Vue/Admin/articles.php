@@ -8,7 +8,13 @@ foreach ($articles as $article) {
   <em><?php if ($article->getStatus()) { echo 'published'; } else { echo 'not published'; } ?></em>
 </h5>
   <div class="btn-group" role="group">
-    <a class="btn btn-info" href="?Controller=Admin&&Action=publishArticle&&id=<?php echo $article->getId() ?>" role="button" <?php if ($article->getStatus()) { echo 'disabled'; } ?>>
+    <a class="btn btn-info"
+    <?php
+      if (!$article->getStatus()) { ?>
+          href="?Controller=Admin&&Action=publishArticle&&id=<?php echo $article->getId() ?>"
+    <?php  }
+    ?>
+     role="button" <?php if ($article->getStatus()) { echo 'disabled'; } ?>>
       Publish an article
     </a>
     <a class="btn btn-warning" href="?Controller=Admin&&Vue=modifyArticle&&id=<?php echo $article->getId() ?>">Modify the article</a>

@@ -13,11 +13,19 @@ foreach ($signaledComments as $comment) { ?>
   </p>
   <p>
     <a
+    class="btn btn-primary"
+    href="?Controller=Admin&&Action=unmoderateComment&&id=<?php echo $comment->getId(); ?>"
+    >
+      Retrieve original comment
+    </a>
+    <br>
+    <a
     class="btn btn-info"
     href="?Controller=Admin&&Action=unsignalComment&&id=<?php echo $comment->getId(); ?>"
     >
       No problem with it
     </a>
+    <br>
     <a
     class="btn btn-danger"
     href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>"
@@ -25,6 +33,15 @@ foreach ($signaledComments as $comment) { ?>
       Moderate this comment
     </a>
   </p>
+  <?php
+   if ($comment->getModerate()) {
+   ?>
+     <div class="alert alert-info">
+       Ce commentaire a été moderé.
+     </div>
+  <?php
+   }
+  ?>
   <hr>
 <?php
 }

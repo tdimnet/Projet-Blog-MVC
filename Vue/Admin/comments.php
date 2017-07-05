@@ -21,10 +21,16 @@ foreach ($comments as $comment) { ?>
   </p>
   <p>
     <a
-      class="btn btn-danger"
-      href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>"
+    class="btn btn-primary"
+    href="?Controller=Admin&&Action=unmoderateComment&&id=<?php echo $comment->getId(); ?>"
     >
-      Moderate the article comment
+      Retrieve original comment
+    </a>
+    <a
+    class="btn btn-danger"
+    href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>"
+    >
+      Moderate this comment
     </a>
   </p>
   <hr>

@@ -48,6 +48,12 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     moderateComment($commentId);
     header('Location: index.php?Controller=Admin');
 
+    // Retrieve the original comment
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unmoderateComment') {
+    $commentId = $_GET['id'];
+    unmoderateComment($commentId);
+    header('Location: index.php?Controller=Admin');
+
     // Unsignal comment function
   } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment') {
     $commentId = $_GET['id'];
