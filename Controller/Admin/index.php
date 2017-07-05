@@ -45,13 +45,19 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     // Moderate comment function
   } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment') {
     $commentId = $_GET['id'];
-    moderateComment($commentId);
+    $comment = findOne($commentId);
+    if (!is_null($comment)) {
+      moderateComment($commentId);
+    }
     header('Location: index.php?Controller=Admin');
 
     // Retrieve the original comment
   } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unmoderateComment') {
     $commentId = $_GET['id'];
-    unmoderateComment($commentId);
+    $comment = findOne($commentId);
+    if (!is_null($comment)) {
+      unmoderateComment($commentId);
+    }
     header('Location: index.php?Controller=Admin');
 
     // Unsignal comment function
