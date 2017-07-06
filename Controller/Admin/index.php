@@ -16,7 +16,6 @@ isConnected($_SESSION);
 $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 $_SESSION['token'] = $token;
 
-var_dump($_SESSION);
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
 
