@@ -19,8 +19,9 @@ if (!empty($_GET['Vue'])) {
 $path = 'Controller/'.$controller.'/'.$vue.'.php';
 var_dump($path);
 
+
 if (file_exists($path)) {
   require_once $path;
 } else {
-  echo '<h1>Foo</h1>';
+  header('Location: index.php');
 }
