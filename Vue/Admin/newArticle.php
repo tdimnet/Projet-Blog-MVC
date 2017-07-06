@@ -24,6 +24,7 @@ include_once 'Vue\Templates\navigation.php';
         <option value="1">Publish</option>
       </select>
     </div>
+    <input type="hidden" name="token" id="token" value="<?php echo $token; ?>" />
     <button type="submit" class="btn btn-default" name="button">
       Save/Send your episode
     </button>

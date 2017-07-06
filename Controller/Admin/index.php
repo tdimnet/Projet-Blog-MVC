@@ -13,6 +13,11 @@ require_once 'Modele/Comment.php';
 session_start();
 isConnected($_SESSION);
 
+$token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+$_SESSION['token'] = $token;
+
+var_dump($_SESSION);
+
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
 
   // Show all comments function
@@ -24,6 +29,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   } else if ($_GET['Action'] === 'deconnexion') {
     // We remove the user identifier
     unset($_SESSION['identifier']);
+    unset($_SESSION['token']);
     // We add the flash message and go to the home page
     addFlash('Vous êtes bien deconnecté !');
     header('Location: index.php');

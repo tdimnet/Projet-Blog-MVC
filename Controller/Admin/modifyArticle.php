@@ -3,6 +3,12 @@ use Modele\Article;
 
 require_once 'Modele/Article.php';
 require_once 'Modele/ArticleRepository.php';
+require_once 'Services/isLogService.php';
+
+session_start();
+isConnected($_SESSION);
+
+$token = $_SESSION['token'];
 
 $articleId = $_GET['id'];
 $article = findOne($articleId);
@@ -10,7 +16,7 @@ $article = findOne($articleId);
 if (isset($articleId) && !is_null($article)) {
   require_once 'Vue\Admin\modifyArticle.php';
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token']))) {
 
     if (strlen($title) === 0 || strlen($episode) === 0) {
       header('Location: index.php?Controller=Admin');

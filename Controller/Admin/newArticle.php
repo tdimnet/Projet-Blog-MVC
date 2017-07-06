@@ -1,10 +1,19 @@
 <?php
 use Modele\Article;
+
 require_once 'Modele/Article.php';
+require_once 'Services/isLogService.php';
 require_once 'Modele/ArticleRepository.php';
 
+session_start();
+isConnected($_SESSION);
+
+$token = $_SESSION['token'];
+
+
+
 // If a new article has been posted
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token']))) {
 
   $Article = new Article();
 
