@@ -1,0 +1,4 @@
+AuthName "Veuillez renseigner votre mot de passe"
+AuthType Basic
+AuthUserFile "C:\wamp\www\Projet-Blog-MVC\Vue\.htpasswd"
+Require valid-user
