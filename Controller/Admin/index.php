@@ -3,7 +3,6 @@ use Modele\Article;
 use Modele\Comment;
 
 // Enlever les majuscules des repositoryrs
-
 require_once 'Services/flashMessagesService.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/CommentRepository.php';
@@ -32,14 +31,18 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle') {
     $articleId = $_GET['id'];
     $Article = findOne($articleId);
-    deleteArticle($Article);
+    if (!is_null($Article)) {
+      deleteArticle($Article);
+    }
     header('Location: index.php?Controller=Admin');
 
     // Publish function
   } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'publishArticle') {
     $articleId = $_GET['id'];
     $Article = findOne($articleId);
-    publishArticle($Article);
+    if (!is_null($Article)) {
+      publishArticle($Article);
+    }
     header('Location: index.php?Controller=Admin');
 
     // Moderate comment function
@@ -63,7 +66,10 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     // Unsignal comment function
   } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment') {
     $commentId = $_GET['id'];
-    unsignalComment($commentId);
+    $comment = findOne($commentId);
+    if (!is_null($comment)) {
+      unsignalComment($commentId);
+    }
     header('Location: index.php?Controller=Admin');
   }
 } // /if()
