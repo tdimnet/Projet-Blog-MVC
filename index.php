@@ -8,7 +8,7 @@ if (!empty($_GET) && !isset($_GET['Controller'])) {
 
 $controller = 'Blog';
 if (!empty($_GET['Controller'])) {
-  $controller = $_GET['Controller'];
+  $controller = str_replace(['.', '/', '\\'], '', $_GET['Controller']);
 }
 
 $vue = 'index';

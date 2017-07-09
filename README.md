@@ -1,5 +1,5 @@
 # Projet-Blog-MVC
 
 ## Todo:
-- Afficher les commentaires via la nouvelle fonction answsering with comments
-- Insertion de commentaires
+- Gerer les 404 => via le htaccess (point d'entrée : racine du projet).
+- Faire des autorisations via les htaccess.

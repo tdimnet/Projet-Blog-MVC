@@ -1,4 +1,2 @@
-AuthName "Veuillez renseigner votre mot de passe"
-AuthType Basic
-AuthUserFile "C:\wamp\www\Projet-Blog-MVC\Controller\.htpasswd"
-Require valid-user
+Order deny,allow
+Deny from all
