@@ -8,10 +8,13 @@ include_once 'Vue/Templates/header.php';
         <div class="main-title">
           <h1 class="text-underline">Billet simple pour l'Alaska</h1>
           <div class="container">
+            <div class="row">
+
+            </div>
             <?php
             // Display the list of articles
             foreach ($Articles as $Article) { ?>
-              <h4 class="row" >
+              <h4 class="col-xs-6 col-md-4" >
                 <?php echo $Article->getTitre(); ?>
                 <br>
                 <a
