@@ -1,7 +1,7 @@
   <footer class="footer">
     <?php if ($path === 'Controller/Blog/index.php'): ?>
       <a class="connect-button" href="?Controller=Blog&&Vue=connexion">
-        Se connecter
+        Espace d'administration
       </a>
     <?php else: ?>
       <div class="container">
