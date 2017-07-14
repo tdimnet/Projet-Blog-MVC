@@ -8,7 +8,6 @@ require_once 'Services/flashMessagesService.php';
 
 session_start();
 isConnected($_SESSION);
-
 $token = $_SESSION['token'];
 
 $articleId = $_GET['id'];
@@ -37,5 +36,6 @@ if (isset($articleId) && !is_null($article)) {
     }
   }
 } else {
-  header('Location: index.php?Controller=Admin');
+  addFlash('Vous ne pouve pas modifier cet article !');
+  header('Location: index.php');
 }

@@ -13,7 +13,7 @@ if (!empty($_GET['Controller'])) {
 
 $vue = 'index';
 if (!empty($_GET['Vue'])) {
-  $vue = $_GET['Vue'];
+  $vue = str_replace(['.', '/', '\\'], '', $_GET['Vue']);
 }
 
 $path = 'Controller/'.$controller.'/'.$vue.'.php';
