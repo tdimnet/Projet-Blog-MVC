@@ -37,7 +37,6 @@ if (isset($articleId) && !is_null($article)) {
     } else {
 
       $Comment = new Comment();
-
       $Comment->setFull_name($name);
       $Comment->setComment($comment);
       $Comment->setArticle_id($articleId);
@@ -46,12 +45,14 @@ if (isset($articleId) && !is_null($article)) {
 
       // then we enter the data in database
       addComment($Comment);
+      // We infor, the user the comment has been posted
+      addFlash('Votre commentaire a été ajouté avec succès !');
       // Finally we redirect the user
       header('Location: index.php?Controller=Blog&&Vue=article&&id='. $articleId);
     }
   }
   require_once 'Vue/Blog/article.php';
 } else {
-  addFlash('Un commentaire ne peut pas être vide !');
+  addFlash('Cet article n\'existe pas !');
   header('Location: index.php');
 }
