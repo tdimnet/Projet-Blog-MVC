@@ -1,6 +1,15 @@
   <footer class="footer">
     <?php if ($path === 'Controller/Blog/index.php'): ?>
       <a href="?Controller=Blog&&Vue=connexion">Se connecter</a>
+    <?php else: ?>
+      <div class="container">
+        <div class="row">
+          <hr>
+          <p class="text-center">
+            &copy; Best web site
+          </p>
+        </div>
+      </div>
     <?php endif; ?>
   </footer>
 
