@@ -18,16 +18,9 @@ if (isset($articleId) && !is_null($article)) {
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token']))) {
 
-    if (strlen($title) === 0 || strlen($episode) === 0) {
-      header('Location: index.php?Controller=Admin');
-    }
-
-    $title = $_POST['titre'];
-    $episode = $_POST['episode'];
-    $status = $_POST['status'];
-
-    $title = trim(htmlspecialchars($_POST['title']));
+    $title = trim(htmlspecialchars($_POST['titre']));
     $episode = trim(htmlspecialchars($_POST['episode']));
+    $status = $_POST['status'];
 
     if (strlen($title) === 0 || strlen($episode) === 0) {
       header('Location: index.php?Controller=Admin');
