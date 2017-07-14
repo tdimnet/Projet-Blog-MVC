@@ -13,12 +13,15 @@ require_once 'Modele/Comment.php';
 session_start();
 isConnected($_SESSION);
 
+if (isset($_SESSION['flashbag'])) {
+  $flashMessage = getFlash();
+}
+
 $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 $_SESSION['token'] = $token;
 
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
-
   // Show all comments function
   if ($_GET['Action'] === 'showAllComments') {
     // Load all the comments

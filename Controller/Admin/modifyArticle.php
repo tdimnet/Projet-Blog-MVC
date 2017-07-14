@@ -4,6 +4,7 @@ use Modele\Article;
 require_once 'Modele/Article.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Services/isLogService.php';
+require_once 'Services/flashMessagesService.php';
 
 session_start();
 isConnected($_SESSION);
@@ -26,14 +27,12 @@ if (isset($articleId) && !is_null($article)) {
       header('Location: index.php?Controller=Admin');
     } else {
       $Article = new Article();
-
       $Article->setId($articleId);
       $Article->setTitre($title);
       $Article->setEpisode($episode);
       $Article->setStatus($status);
-
       updateArticle($Article);
-
+      addFlash('Votre article a bien été modifié !');
       header('Location: index.php?Controller=Admin');
     }
   }
