@@ -1,12 +1,14 @@
   <footer class="footer">
     <?php if ($path === 'Controller/Blog/index.php'): ?>
-      <a href="?Controller=Blog&&Vue=connexion">Se connecter</a>
+      <a class="connect-button" href="?Controller=Blog&&Vue=connexion">
+        Se connecter
+      </a>
     <?php else: ?>
       <div class="container">
         <div class="row">
           <hr>
           <p class="text-center">
-            &copy; Best web site
+            &copy; Un billet pour l'Alaska - Jean Forteroche
           </p>
         </div>
       </div>

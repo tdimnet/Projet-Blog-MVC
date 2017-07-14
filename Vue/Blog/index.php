@@ -11,10 +11,11 @@ include_once 'Vue/Templates/header.php';
             <?php
             // Display the list of articles
             foreach ($Articles as $Article) { ?>
-              <h4>
-                <?php echo $Article->getTitre(); ?> -
+              <h4 class="row" >
+                <?php echo $Article->getTitre(); ?>
+                <br>
                 <a
-                  class="btn btn-primary"
+                  class="btn btn-primary cta-button"
                   href="?Controller=Blog&&Vue=article&&id=<?php echo $Article->getId(); ?>"
                 >
                   Lire la suite
@@ -23,7 +24,6 @@ include_once 'Vue/Templates/header.php';
             <?php }
             ?>
           </div>
-
         </div>
     </div>
 

@@ -8,3 +8,26 @@ body {
 .navbar {
   margin-bottom: 0;
 }
+
+/* Episode title */
+.cta-button {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+
+/* Footer */
+.connect-button {
+  position: absolute;
+  bottom: 0px;
+  z-index: 1000;
+  color: #444;
+  opacity: .8;
+  transition: .4s;
+}
+
+.connect-button:hover {
+  text-decoration: none;
+  color: #444;
+  opacity: 1;
+}
