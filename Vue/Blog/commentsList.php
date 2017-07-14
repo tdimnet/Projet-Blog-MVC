@@ -4,32 +4,23 @@
   <?php
   foreach ($comments as $comment) { ?>
     <div class="row">
-      <div class="col-md-6">
+      <hr>
+      <div class="col-xs-12">
         <h4>
           Comment author : <?php echo $comment->getFull_name(); ?>
           <br>
         </h4>
-
         <p>
-          Commnent :
+          <em>Commnent :</em>
           <br>
           <?php
            if ($comment->getModerate()) {
               echo "Ce commentaire a été modéré";
            } else {
-             echo $comment->getComment();   
+             echo $comment->getComment();
            }
-
           ?>
         </p>
-        <a
-          class="btn btn-info sendComment"
-          data="<?php echo $comment->getId(); ?>"
-        >
-        <!-- Hidden avec le champ du commentaire (on verifie en bdd aue le commentaire n'a pas plus de trois niveaux) -->
-          Répondre
-        </a>
-
         <a
           class="btn btn-warning signal"
           href="?Controller=Blog&&Action=moderateComment&&commentId=<?php echo $comment->getId(); ?>&&articleId=<?php echo $article->getId(); ?>"
