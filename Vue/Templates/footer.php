@@ -1,21 +1,23 @@
   <footer class="footer">
-    <a href="?Controller=Blog&&Vue=connexion">Se connecter</a>
+    <?php if ($path === 'Controller/Blog/index.php'): ?>
+      <a href="?Controller=Blog&&Vue=connexion">Se connecter</a>
+    <?php endif; ?>
   </footer>
 
   <?php
-if ($path === 'Controller/Blog/index.php') {
+    if ($path === 'Controller/Blog/index.php') {
   ?>
     <script src="./Public/js/rAF.js" charset="utf-8"></script>
     <script src="./Public/js/background.js" charset="utf-8"></script>
   <?php
-} else if (isset($_GET['Controller']) && isset($_GET['Vue']) && $_GET['Controller'] === 'Blog') { ?>
-  <script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
-  <script src="./Public/js/app.js" charset="utf-8"></script>
+    } else if (isset($_GET['Controller']) && isset($_GET['Vue']) && $_GET['Controller'] === 'Blog') { ?>
+      <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+      <script src="./Public/js/app.js" charset="utf-8"></script>
   <?php
-}
+    }
   ?>
 
 
