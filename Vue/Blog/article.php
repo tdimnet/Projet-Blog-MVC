@@ -19,17 +19,9 @@ include_once 'Vue/Templates/navigation.php';
 
 <?php
 include_once 'Vue/Blog/commentsList.php';
-
-// var_dump($commentAnswers);
 ?>
-
-
 <hr>
-
 <?php
 include_once 'Vue/Blog/leaveComment.php';
-?>
-
-<?php
 include_once 'Vue/Templates/footer.php';
 ?>

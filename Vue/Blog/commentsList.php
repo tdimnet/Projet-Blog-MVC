@@ -1,17 +1,17 @@
 <div class="container">
   <hr>
-  <h3>Comments linked to this article</h3>
+  <h3>Comments liés à cet article</h3>
   <?php
   foreach ($comments as $comment) { ?>
     <div class="row">
       <hr>
       <div class="col-xs-12">
         <h4>
-          Comment author : <?php echo $comment->getFull_name(); ?>
+          Auteur : <?php echo $comment->getFull_name(); ?>
           <br>
         </h4>
         <p>
-          <em>Commnent :</em>
+          <em>Commnentaire :</em>
           <br>
           <?php
            if ($comment->getModerate()) {

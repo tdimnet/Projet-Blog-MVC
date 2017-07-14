@@ -17,13 +17,17 @@
     }
     ?>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="./">Home</a></li>
+      <li>
+        <a href="./">
+          Accueil
+        </a>
+      </li>
       <?php
       if ($_GET['Controller'] === 'Admin') {
       ?>
       <li>
         <a href="./?Controller=Admin">
-          Admin
+          Administration
         </a>
       </li>
       <li><a href="?Controller=Admin&&Action=deconnexion">Se deconnecter</a></li>
