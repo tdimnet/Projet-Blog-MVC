@@ -7,7 +7,7 @@ foreach ($articles as $article) {
 <h5>Status :
   <em>
     <?php
-      if ($article->getStatus()) { echo 'published'; } else { echo 'not published'; }
+      if ($article->getStatus()) { echo 'publié'; } else { echo 'non publié'; }
     ?>
   </em>
 </h5>
@@ -21,19 +21,19 @@ foreach ($articles as $article) {
       }
     ?>
      role="button" <?php if ($article->getStatus()) { echo 'disabled'; } ?>>
-      Publish an article
+      Publier l'article
     </a>
     <a
       class="btn btn-warning"
       href="?Controller=Admin&&Vue=modifyArticle&&id=<?= $article->getId() ?>"
     >
-      Modify the article
+      Modifier l'article
     </a>
     <a
       class="btn btn-danger"
       href="?Controller=Admin&&Action=deleteArticle&&id=<?= $article->getId() ?>&&token<?= $token ?>"
     >
-      Delete the article
+      Supprimer l'article
     </a>
   </div>
 <?php

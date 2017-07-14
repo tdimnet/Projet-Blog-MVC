@@ -11,11 +11,11 @@
 <?php
 foreach ($comments as $comment) { ?>
   <h4>
-    Comment author : <?php echo $comment->getFull_name() ?>
+    Auteur : <?php echo $comment->getFull_name() ?>
     <br>
   </h4>
   <p>
-    Commnent :
+    Commnentaire :
     <br>
     <?php echo $comment->getComment() ?>
   </p>
@@ -24,13 +24,13 @@ foreach ($comments as $comment) { ?>
     class="btn btn-primary"
     href="?Controller=Admin&&Action=unmoderateComment&&id=<?php echo $comment->getId(); ?>"
     >
-      Retrieve original comment
+      Retablir le commentaire
     </a>
     <a
     class="btn btn-danger"
     href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>"
     >
-      Moderate this comment
+      Modifier le commentaire
     </a>
   </p>
   <hr>
