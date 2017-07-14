@@ -4,6 +4,11 @@ use Modele\User;
 
 require_once 'Modele/User.php';
 require_once 'Modele/UserRepository.php';
+require_once 'Services/flashMessagesService.php';
+
+if (isset($_SESSION['flashbag'])) {
+  $flashMessage = getFlash();
+}
 
 // If a session already exists, check the variables
 if (isset($_SESSION) && isset($_SESSION['identifier'])) {
@@ -21,10 +26,10 @@ if (isset($_SESSION) && isset($_SESSION['identifier'])) {
     $user = findUser($identifier);
     // Then do the verifications
     if (!$user || (sha1($password) !== $user->getPassword())) {
+      addFlash('Identifiants de connexion incorrects !');
       header('Location: index.php?Controller=Blog&&Vue=connexion');
     } else {
       // Then start the session by adding the variables within the session
-      session_start();
       $_SESSION['identifier'] = $identifier;
       header('Location: index.php?Controller=Admin');
     }
