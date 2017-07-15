@@ -31,7 +31,7 @@ foreach ($allComments as $comment) { ?>
       <p>
         <a
           class="btn btn-danger"
-          href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>"
+          href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>&&token=<?= $token ?>"
         >
           Moderate the article comment
         </a>

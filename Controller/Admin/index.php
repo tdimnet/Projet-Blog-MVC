@@ -19,6 +19,9 @@ if (isset($_SESSION['flashbag'])) {
 $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 $_SESSION['token'] = $token;
 
+// var_dump($_GET);
+// var_dump($_SESSION);
+
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   // Show all comments function
@@ -35,46 +38,54 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     addFlash('Vous êtes bien deconnecté !');
     header('Location: index.php');
     // Delete function
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle') {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
     $articleId = $_GET['id'];
     $Article = findOne($articleId);
     if (!is_null($Article)) {
       deleteArticle($Article);
+      addFlash('Votre article a bien été supprimé !');
+      header('Location: index.php?Controller=Admin');
+    } else {
+      addFlash('Votre article n\'a pas pu être supprimé.. !');
+      header('Location: index.php');
     }
-    header('Location: index.php?Controller=Admin');
 
     // Publish function
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'publishArticle') {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'publishArticle' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
     $articleId = $_GET['id'];
     $Article = findOne($articleId);
     if (!is_null($Article)) {
+      addFlash('Votre article a été publié !');
       publishArticle($Article);
     }
     header('Location: index.php?Controller=Admin');
 
     // Moderate comment function
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment') {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
     $commentId = $_GET['id'];
-    $comment = findOne($commentId);
+    $comment = findOneComment($commentId);
     if (!is_null($comment)) {
       moderateComment($commentId);
+      addFlash('Ce commentaire a été modéré !');
     }
     header('Location: index.php?Controller=Admin');
 
     // Retrieve the original comment
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unmoderateComment') {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unmoderateComment' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
     $commentId = $_GET['id'];
-    $comment = findOne($commentId);
+    $comment = findOneComment($commentId);
     if (!is_null($comment)) {
+      addFlash('Ce commentaire est revenu à son état initial !');
       unmoderateComment($commentId);
     }
     header('Location: index.php?Controller=Admin');
 
     // Unsignal comment function
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment') {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
     $commentId = $_GET['id'];
-    $comment = findOne($commentId);
+    $comment = findOneComment($commentId);
     if (!is_null($comment)) {
+      addFlash('Ce commentaire n\'est plus marqué comme signalé !');
       unsignalComment($commentId);
     }
     header('Location: index.php?Controller=Admin');

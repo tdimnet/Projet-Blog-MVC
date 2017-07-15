@@ -22,15 +22,15 @@ foreach ($comments as $comment) { ?>
   <p>
     <a
     class="btn btn-primary"
-    href="?Controller=Admin&&Action=unmoderateComment&&id=<?php echo $comment->getId(); ?>"
+    href="?Controller=Admin&&Action=unmoderateComment&&id=<?php echo $comment->getId(); ?>&&token=<?= $token ?>"
     >
       Retablir le commentaire
     </a>
     <a
     class="btn btn-danger"
-    href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>"
+    href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>&&token=<?= $token ?>"
     >
-      Modifier le commentaire
+      Modérer le commentaire
     </a>
   </p>
   <hr>

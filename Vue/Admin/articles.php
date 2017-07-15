@@ -16,7 +16,7 @@ foreach ($articles as $article) {
     <?php
       if (!$article->getStatus()) {
     ?>
-        href="?Controller=Admin&&Action=publishArticle&&id=<?= $article->getId() ?>&&<?= $token ?>"
+        href="?Controller=Admin&&Action=publishArticle&&id=<?= $article->getId() ?>&&token=<?= $token ?>"
     <?php
       }
     ?>
@@ -31,7 +31,7 @@ foreach ($articles as $article) {
     </a>
     <a
       class="btn btn-danger"
-      href="?Controller=Admin&&Action=deleteArticle&&id=<?= $article->getId() ?>&&token<?= $token ?>"
+      href="?Controller=Admin&&Action=deleteArticle&&id=<?= $article->getId() ?>&&token=<?= $token ?>"
     >
       Supprimer l'article
     </a>
