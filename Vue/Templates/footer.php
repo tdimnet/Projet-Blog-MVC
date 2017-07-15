@@ -47,5 +47,9 @@
   });
   </script>
   <?php endif; ?>
+
+  <?php if (isset($_GET['Controller']) && isset($_GET['Action']) && ($_GET['Controller'] === 'Admin') && $_GET['Action'] === 'showAllComments' ): ?>
+    <script src="./Public/js/commentsList.js" charset="utf-8"></script>
+  <?php endif; ?>
 </body>
 </html>

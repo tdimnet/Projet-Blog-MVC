@@ -31,3 +31,11 @@ body {
   color: #444;
   opacity: 1;
 }
+
+.list-inline li a {
+  cursor: pointer;
+}
+
+.not-active {
+  display: none;
+}
