@@ -14,7 +14,7 @@ include_once 'Vue/Templates/header.php';
             <?php
             // Display the list of articles
             foreach ($Articles as $Article) { ?>
-              <h4 class="col-xs-6 col-md-4" >
+              <h4 class="col-xs-12 col-md-6 col-lg-4" >
                 <?php echo $Article->getTitre(); ?>
                 <br>
                 <a
