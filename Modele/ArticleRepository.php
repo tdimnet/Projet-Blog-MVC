@@ -41,10 +41,11 @@ function findOne($articleId) {
   $request->bindParam(':id', $articleId, PDO::PARAM_INT);
   $request->execute();
 
+  // Review Seb => fetch directement (pas de while nécessaire)
   while ($donnees = $request->fetch()) {
     $article = new Article($donnees);
   }
-
+  // Fin review seb
   return $article;
 }
 

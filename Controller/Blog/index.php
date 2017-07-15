@@ -15,6 +15,11 @@ if (isset($_SESSION['flashbag'])) {
 
 $Articles = findAllPublished();
 
+// Review Seb
+  // Ajouter des tokens pour ajouter des commentaires.
+// End review seb
+
+
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   if ($_GET['Controller'] === 'Blog' && $_GET['Action'] === 'moderateComment') {
     $commentId = $_GET['commentId'];

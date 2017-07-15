@@ -17,12 +17,19 @@ if (isset($_SESSION['flashbag'])) {
 }
 
 // If a new article has been posted
+  // review seb
+    // Virer les ends
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) AND isset($_POST['token']) AND !empty($_SESSION['token']) AND !empty($_POST['token']) && $_SESSION['token'] === $_POST['token'])) {
+
+  // End seb review
 
   $title = trim(htmlspecialchars($_POST['titre']));
   $episode = trim(htmlspecialchars($_POST['episode']));
   $created_at = new \DateTime();
+  // Review seb
+    // PDO gère normalement les dates
   $created_at = $created_at->format('Y-m-d H:i:s');
+  // End review seb
   $status = $_POST['status'];
 
   if (strlen($title) === 0 || strlen($episode) === 0) {

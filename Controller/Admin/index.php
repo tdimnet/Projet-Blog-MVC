@@ -19,8 +19,13 @@ if (isset($_SESSION['flashbag'])) {
 $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 $_SESSION['token'] = $token;
 
-// var_dump($_GET);
-// var_dump($_SESSION);
+// Review seb
+  // bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM)); => fonction depréciée
+  // Verifier token => faire une fonction à la place => plus lisible
+  // token valide 10 minutes :
+    // Soit, Date de création de token en session
+    // Soit, date à laquelle le token a expiré
+// end review seb
 
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {

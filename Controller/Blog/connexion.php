@@ -20,8 +20,11 @@ if (isset($_SESSION) && isset($_SESSION['identifier'])) {
 // This case is when the form is submitted
 } else if (isset($_POST) && !empty($_POST)) {
   // Decode the variables
+    // Review seb
+      // Virer htmlspecialchars
   $identifier = htmlspecialchars($_POST['identifier']);
   $password = htmlspecialchars($_POST['password']);
+    // End review seb
   if (isset($identifier) && isset($password)) {
     $user = findUser($identifier);
     // Then do the verifications
