@@ -8,7 +8,10 @@ require_once 'Services/flashMessagesService.php';
 
 session_start();
 isConnected($_SESSION);
-$token = $_SESSION['token'];
+
+unset($_SESSION['token']);
+$token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+$_SESSION['token'] = $token;
 
 $articleId = $_GET['id'];
 $article = findOne($articleId);
