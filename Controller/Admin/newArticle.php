@@ -23,8 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) AND isse
 
   // End seb review
 
+  // Virer le htmlspecialchars
   $title = trim(htmlspecialchars($_POST['titre']));
   $episode = trim(htmlspecialchars($_POST['episode']));
+  // Ok
+
+
   $created_at = new \DateTime();
   // Review seb
     // PDO gère normalement les dates
