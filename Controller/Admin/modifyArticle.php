@@ -14,6 +14,10 @@ $token = $_SESSION['token'];
 $articleId = $_GET['id'];
 $article = findOne($articleId);
 
+if (isset($_SESSION['flashbag'])) {
+  $flashMessage = getFlash();
+}
+
 if (isset($articleId) && !is_null($article)) {
   require_once 'Vue\Admin\modifyArticle.php';
 
@@ -33,7 +37,6 @@ if (isset($articleId) && !is_null($article)) {
       $Article->setStatus($status);
       updateArticle($Article);
       addFlash('Votre article a bien été modifié !');
-      header('Location: index.php?Controller=Admin');
     }
   }
 } else {

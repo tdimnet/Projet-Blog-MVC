@@ -31,10 +31,7 @@
     }
   ?>
 
-
-  <?php
-  if (isset($_GET['Controller']) && $_GET['Controller'] === 'Admin') {
-  ?>
+  <?php if (isset($_GET['Controller']) && $_GET['Controller'] === 'Admin'): ?>
   <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
   <script>
   tinymce.init({
@@ -49,18 +46,6 @@
     toolbar: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
   });
   </script>
-  <?php
-  }
-  
-  // The include script for adding new comments
-    if (isset($_GET['Controller']) && isset($_GET['Vue']) && isset($_GET['id'])) {
-      if ($_GET['Controller'] === 'Blog' && $_GET['Vue'] === 'article') {
-        ?>
-          <script src="./Public/js/addComment.js" charset="utf-8"></script>
-        <?php
-      }
-    }
-  ?>
-
+  <?php endif; ?>
 </body>
 </html>
