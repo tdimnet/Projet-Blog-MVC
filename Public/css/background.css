@@ -3,10 +3,12 @@
 	position: relative;
 	width: 100%;
 	background: #333;
-	overflow: hidden;
 	background-size: cover;
 	background-position: center center;
-	z-index: 1;
+}
+
+#demo-canvas {
+	display: none;
 }
 
 .large-header {
@@ -17,10 +19,7 @@
 	position: absolute;
 	margin: 0;
 	text-align: center;
-	top: 30%;
-	left: 50%;
-	-webkit-transform: translate3d(-50%,-50%,0);
-	transform: translate3d(-50%,-50%,0);
+	top: 10%;
 	font-weight: 300;
 	padding: 10px 30px;
 	text-transform: uppercase;
@@ -28,5 +27,35 @@
 }
 
 .main-title h1 {
-	font-size: 3em;
+	font-size: 1.2em;
+}
+
+.main-title h4 {
+	font-size: .9em;
+}
+
+
+@media (min-width: 768px) {
+	.large-header {
+		overflow: hidden;
+	}
+	#demo-canvas {
+		display: initial;
+	}
+	.main-title {
+		top: 20%;
+		left: 50%;
+		-webkit-transform: translate3d(-50%,-50%,0);
+		transform: translate3d(-50%,-50%,0);
+	}
+	.main-title h1 {
+		font-size: 1.8em;
+	}
+}
+
+
+@media (min-width: 1024px) {
+	.main-title h1 {
+		font-size: 2.5em;
+	}
 }
