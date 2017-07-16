@@ -9,12 +9,7 @@ require_once 'Services/isLogService.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
-session_start();
 isConnected($_SESSION);
-
-if (isset($_SESSION['flashbag'])) {
-  $flashMessage = getFlash();
-}
 
 $token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
 $_SESSION['token'] = $token;

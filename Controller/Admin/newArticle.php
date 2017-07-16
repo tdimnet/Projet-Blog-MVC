@@ -1,13 +1,11 @@
 <?php
 use Modele\Article;
 
-
 require_once 'Modele/Article.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Services/isLogService.php';
 require_once 'Services/flashMessagesService.php';
 
-session_start();
 isConnected($_SESSION);
 
 $token = $_SESSION['token'];
@@ -17,10 +15,7 @@ if (isset($_SESSION['flashbag'])) {
 }
 
 // If a new article has been posted
-  // review seb
-    // Virer les ends
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) && isset($_POST['token']) && !empty($_SESSION['token']) && !empty($_POST['token']) && $_SESSION['token'] === $_POST['token'])) {
-  // End seb review
 
   $title = $_POST['titre'];
   $episode = $_POST['episode'];

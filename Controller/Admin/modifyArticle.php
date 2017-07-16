@@ -6,7 +6,6 @@ require_once 'Modele/ArticleRepository.php';
 require_once 'Services/isLogService.php';
 require_once 'Services/flashMessagesService.php';
 
-session_start();
 isConnected($_SESSION);
 
 $token = $_SESSION['token'];
@@ -23,10 +22,8 @@ if (isset($articleId) && !is_null($article)) {
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) && isset($_POST['token']) && !empty($_SESSION['token']) && !empty($_POST['token']) && $_SESSION['token'] === $_POST['token'])) {
 
-    // Virer le htmlspecialchars
-    $title = trim(htmlspecialchars($_POST['titre']));
-    $episode = trim(htmlspecialchars($_POST['episode']));
-    // Fin de virage
+    $title = $_POST['titre'];
+    $episode = $_POST['episode'];
     $status = $_POST['status'];
 
     if (strlen($title) === 0 || strlen($episode) === 0) {
@@ -38,7 +35,6 @@ if (isset($articleId) && !is_null($article)) {
       $Article->setEpisode($episode);
       $Article->setStatus($status);
       updateArticle($Article);
-      addFlash('Votre article a bien été modifié !');
     }
   }
 } else {
