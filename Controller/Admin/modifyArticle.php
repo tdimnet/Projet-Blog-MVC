@@ -4,7 +4,7 @@ use Modele\Article;
 require_once 'Modele/Article.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Services/isLogService.php';
-require_once 'Services/flashMessagesService.php';
+require_once 'Services/tokenVerificationService.php';
 
 isConnected($_SESSION);
 
@@ -20,7 +20,7 @@ if (isset($_SESSION['flashbag'])) {
 if (isset($articleId) && !is_null($article)) {
   require_once 'Vue\Admin\modifyArticle.php';
 
-  if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) && isset($_POST['token']) && !empty($_SESSION['token']) && !empty($_POST['token']) && $_SESSION['token'] === $_POST['token'])) {
+  if ($_SERVER['REQUEST_METHOD'] === 'POST' && verifyToken($_SESSION['token'], $_POST['token'])) {
 
     $title = $_POST['titre'];
     $episode = $_POST['episode'];

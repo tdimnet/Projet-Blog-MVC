@@ -4,18 +4,15 @@ use Modele\Article;
 require_once 'Modele/Article.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Services/isLogService.php';
-require_once 'Services/flashMessagesService.php';
+require_once 'Services/tokenVerificationService.php';
 
 isConnected($_SESSION);
 
 $token = $_SESSION['token'];
 
-if (isset($_SESSION['flashbag'])) {
-  $flashMessage = getFlash();
-}
 
 // If a new article has been posted
-if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_SESSION['token']) && isset($_POST['token']) && !empty($_SESSION['token']) && !empty($_POST['token']) && $_SESSION['token'] === $_POST['token'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && verifyToken($_SESSION['token'], $_POST['token'])) {
 
   $title = $_POST['titre'];
   $episode = $_POST['episode'];

@@ -6,7 +6,6 @@ require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/CommentRepository.php';
-require_once 'Services/flashMessagesService.php';
 
 $articleId = $_GET['id'];
 $article = findOne($articleId);
@@ -14,19 +13,12 @@ $article = findOne($articleId);
 // If the articleId isset and exists, we can access it
 if (isset($articleId) && !is_null($article)) {
   $comments = findCommentByArticle($articleId);
-  // Review seb => à virer
-  $commentAnswers = findCommentsWithAnsweringComments($articleId);
-  //
 
   // If the comment is submitted with a POST Method
-    // Verifier si $name exists et $comment exists
   if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // We do the verifications
-      // Review seb si &nsbn; => pose problème
-      // htmlspecialchars => plutôt à l'affichage
     $name = trim(htmlspecialchars($_POST['name']));
     $comment = trim(htmlspecialchars($_POST['comment']));
-      // htmlspecialchars
     $isAbusive = 0;
     $isModerate = 0;
 
@@ -37,16 +29,12 @@ if (isset($articleId) && !is_null($article)) {
     // Else it goes on database
     } else {
 
-      // Review Seb
-        // Virer les majuscules
-        // virer les underscores
       $Comment = new Comment();
       $Comment->setFull_name($name);
       $Comment->setComment($comment);
       $Comment->setArticle_id($articleId);
       $Comment->setAbusive($isAbusive);
       $Comment->setModerate($isModerate);
-        // Fin review seb
 
       // then we enter the data in database
       addComment($Comment);

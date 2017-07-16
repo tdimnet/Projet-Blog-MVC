@@ -2,7 +2,6 @@
 use Modele\Article;
 use Modele\Comment;
 
-require_once 'Services/flashMessagesService.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/CommentRepository.php';
 require_once 'Modele/Article.php';
