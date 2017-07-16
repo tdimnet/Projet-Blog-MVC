@@ -7,9 +7,9 @@
   </small>
 </div>
 
-<hr>
 <?php
 foreach ($comments as $comment) { ?>
+  <hr>
   <h4>
     Auteur : <?php echo $comment->getFull_name() ?>
     <br>
@@ -42,7 +42,7 @@ foreach ($comments as $comment) { ?>
   <?php
    }
   ?>
-  <hr>
+
 <?php
 }
 ?>

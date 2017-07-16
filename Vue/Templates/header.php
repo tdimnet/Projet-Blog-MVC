@@ -15,16 +15,11 @@ require_once 'Services/flashMessagesService.php';
 
 </head>
 <body>
-  <!-- Review seb => Virer le header -->
-  <header>
-    <!-- Faire changer de couleur le header quand il y a une header -->
-    <?php
-      if (isset($flashMessage)) { ?>
-        <div class="alert alert-success text-center">
-          <?php echo $flashMessage; ?>
-        </div>
-    <?php
-    }
-    ?>
-  </header>
-  <!--  -->
+  <?php
+    if (isset($flashMessage)) { ?>
+      <div class="alert alert-success text-center">
+        <?php echo $flashMessage; ?>
+      </div>
+  <?php
+  }
+  ?>

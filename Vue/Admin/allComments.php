@@ -19,7 +19,7 @@ include_once 'Vue/Templates/navigation.php';
   <?php
   foreach ($allComments as $comment) { ?>
 
-      <div class="col-sm-6 col-md-4 col-lg-3 comment-items">
+      <div class="col-xs-8 comment-items">
         <h4>
           Auteur : <?php echo $comment->getFull_name() ?>
           <br>

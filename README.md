@@ -10,8 +10,6 @@ Pour vous connecter à l'interface d'administration avec la bdd fournie dans le 
 Vous trouverez la base de données dans le dossier sql. Cette dernière était déjà prête à être importée et à être utilisée. Vous pouvez utiliser phpmyadmin.
 
 ## Ajouter le dump de la bdd
-## Retablir le commentaire => n'a pas l'air de fonctionner
-## Soucis sur le signalement de commentaire
 ## Rajouter liste des commentaires qui ont été modérés
 ## Voir dans allComments quand les commentaires ont été modérés (status, etc.)
 ## Virer les points des lignes

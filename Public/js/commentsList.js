@@ -26,7 +26,7 @@ const displayResults = (begin, end) => {
   }
   // Then show those are needed
   for (let i = begin; i <= end; i++) {
-    commentsItem[i].className = 'col-sm-6 col-md-4 col-lg-3 comment-items';
+    commentsItem[i].className = 'col-xs-8 comment-items';
   }
 };
 
