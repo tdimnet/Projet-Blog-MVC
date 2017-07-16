@@ -2,26 +2,17 @@
 use Modele\Article;
 use Modele\Comment;
 
-require_once 'Services/flashMessagesService.php';
 require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/CommentRepository.php';
 require_once 'Services/isLogService.php';
+require_once 'Services/tokenVerificationService.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
 isConnected($_SESSION);
 
-$token = bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM));
+$token = bin2hex(random_bytes(32));
 $_SESSION['token'] = $token;
-
-// Review seb
-  // bin2hex(mcrypt_create_iv(32, MCRYPT_DEV_URANDOM)); => fonction depréciée
-  // Verifier token => faire une fonction à la place => plus lisible
-  // token valide 10 minutes :
-    // Soit, Date de création de token en session
-    // Soit, date à laquelle le token a expiré
-// end review seb
-
 
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   // Show all comments function
@@ -38,7 +29,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     addFlash('Vous êtes bien deconnecté !');
     header('Location: index.php');
     // Delete function
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle' && verifyToken($_SESSION['token'], $_GET['token'])) {
     $articleId = $_GET['id'];
     $Article = findOne($articleId);
     if (!is_null($Article)) {
@@ -51,7 +42,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     }
 
     // Publish function
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'publishArticle' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'publishArticle' && verifyToken($_SESSION['token'], $_GET['token'])) {
     $articleId = $_GET['id'];
     $Article = findOne($articleId);
     if (!is_null($Article)) {
@@ -61,7 +52,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     header('Location: index.php?Controller=Admin');
 
     // Moderate comment function
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'moderateComment' && verifyToken($_SESSION['token'], $_GET['token'])) {
     $commentId = $_GET['id'];
     $comment = findOneComment($commentId);
     if (!is_null($comment)) {
@@ -71,7 +62,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     header('Location: index.php?Controller=Admin');
 
     // Retrieve the original comment
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unmoderateComment' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unmoderateComment' && verifyToken($_SESSION['token'], $_GET['token'])) {
     $commentId = $_GET['id'];
     $comment = findOneComment($commentId);
     if (!is_null($comment)) {
@@ -81,7 +72,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     header('Location: index.php?Controller=Admin');
 
     // Unsignal comment function
-  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment' && (isset($_SESSION['token']) && isset($_GET['token']) && !empty($_SESSION['token']) && !empty($_GET['token']))) {
+  } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'unsignalComment' && verifyToken($_SESSION['token'], $_GET['token'])) {
     $commentId = $_GET['id'];
     $comment = findOneComment($commentId);
     if (!is_null($comment)) {
