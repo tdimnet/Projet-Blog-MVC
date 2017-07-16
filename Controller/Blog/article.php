@@ -8,11 +8,6 @@ require_once 'Modele/ArticleRepository.php';
 require_once 'Modele/CommentRepository.php';
 require_once 'Services/flashMessagesService.php';
 
-session_start();
-if (isset($_SESSION['flashbag'])) {
-  $flashMessage = getFlash();
-}
-
 $articleId = $_GET['id'];
 $article = findOne($articleId);
 

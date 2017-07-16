@@ -8,10 +8,6 @@ require_once 'Modele/CommentRepository.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
-session_start();
-if (isset($_SESSION['flashbag'])) {
-  $flashMessage = getFlash();
-}
 
 $Articles = findAllPublished();
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
@@ -30,8 +26,6 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
       addFlash('Cet article ou ce commentaire n\'existe pas !');
       header('Location: index.php');
     }
-
-
   }
 }
 

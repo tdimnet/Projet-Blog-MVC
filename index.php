@@ -1,20 +1,11 @@
 <?php
 require_once 'Modele/config.php';
+require_once 'Services/flashMessagesService.php';
 
-
-// Inclure ici les flash message services plutôt que d'en chaque fichier
-// Autrement dit :
-  // => session_start()
-  // flash_message
-  // If (isset(session flashbag))
-
-
-// If the url does not have a controller parameter
-  // A virer
-if (!empty($_GET) && !isset($_GET['Controller'])) {
-  header('Location: index.php');
+session_start();
+if (isset($_SESSION['flashbag'])) {
+  $flashMessage = getFlash();
 }
-  // Fin à virer
 
 $controller = 'Blog';
 if (!empty($_GET['Controller'])) {
