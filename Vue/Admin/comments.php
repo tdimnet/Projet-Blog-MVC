@@ -33,6 +33,15 @@ foreach ($comments as $comment) { ?>
       Modérer le commentaire
     </a>
   </p>
+  <?php
+   if ($comment->getModerate()) {
+   ?>
+     <div class="alert alert-info">
+       Ce commentaire a été moderé.
+     </div>
+  <?php
+   }
+  ?>
   <hr>
 <?php
 }

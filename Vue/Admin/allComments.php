@@ -21,22 +21,37 @@ include_once 'Vue/Templates/navigation.php';
 
       <div class="col-sm-6 col-md-4 col-lg-3 comment-items">
         <h4>
-          Comment author : <?php echo $comment->getFull_name() ?>
+          Auteur : <?php echo $comment->getFull_name() ?>
           <br>
         </h4>
         <p>
-          Commnent :
+          Commnentaire :
           <br>
           <?php echo $comment->getComment() ?>
         </p>
         <p>
           <a
-            class="btn btn-danger"
-            href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>&&token=<?= $token ?>"
+          class="btn btn-primary"
+          href="?Controller=Admin&&Action=unmoderateComment&&id=<?php echo $comment->getId(); ?>&&token=<?= $token ?>"
           >
-            Moderate the article comment
+            Retablir le commentaire
+          </a>
+          <a
+          class="btn btn-danger"
+          href="?Controller=Admin&&Action=moderateComment&&id=<?php echo $comment->getId(); ?>&&token=<?= $token ?>"
+          >
+            Modérer le commentaire
           </a>
         </p>
+        <?php
+         if ($comment->getModerate()) {
+         ?>
+           <div class="alert alert-info">
+             Ce commentaire a été moderé.
+           </div>
+        <?php
+         }
+        ?>
       </div>
   <?php
   }
