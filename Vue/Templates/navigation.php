@@ -1,6 +1,9 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    <a class="navbar-brand" href="./">Billet simple pour l'Alaska</a>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="./">Billet simple pour l'Alaska</a>
+    </div>
+
     <?php
     if ($_GET['Controller'] === 'Blog' && $_GET['Vue'] === 'article') {
     ?>

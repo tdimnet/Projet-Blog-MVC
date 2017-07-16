@@ -11,10 +11,9 @@ Vous trouverez la base de données dans le dossier sql. Cette dernière était d
 
 ## Ajouter le dump de la bdd
 ## Rajouter liste des commentaires qui ont été modérés
-## Voir dans allComments quand les commentaires ont été modérés (status, etc.)
+
 ## Virer les points des lignes
 ## Attention site pas responsive
-## Mettre sur le local host pour le nom de domaine
 
 
 # Soutenance
