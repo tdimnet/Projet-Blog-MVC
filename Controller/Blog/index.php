@@ -7,7 +7,6 @@ require_once 'Modele/CommentRepository.php';
 require_once 'Modele/Article.php';
 require_once 'Modele/Comment.php';
 
-
 $Articles = findAllPublished();
 if (isset($_GET['Controller']) && isset($_GET['Action'])) {
   if ($_GET['Controller'] === 'Blog' && $_GET['Action'] === 'moderateComment') {

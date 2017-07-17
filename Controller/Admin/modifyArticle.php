@@ -13,10 +13,6 @@ $token = $_SESSION['token'];
 $articleId = $_GET['id'];
 $article = findOne($articleId);
 
-if (isset($_SESSION['flashbag'])) {
-  $flashMessage = getFlash();
-}
-
 if (isset($articleId) && !is_null($article)) {
   require_once 'Vue\Admin\modifyArticle.php';
 

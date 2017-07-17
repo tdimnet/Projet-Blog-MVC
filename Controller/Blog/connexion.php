@@ -5,7 +5,6 @@ require_once 'Modele/User.php';
 require_once 'Modele/UserRepository.php';
 require_once 'Services/flashMessagesService.php';
 
-
 // If a session already exists, check the variables
 if (isset($_SESSION) && isset($_SESSION['identifier'])) {
   $user = findUser($_SESSION['identifier']);

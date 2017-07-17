@@ -10,7 +10,6 @@ isConnected($_SESSION);
 
 $token = $_SESSION['token'];
 
-
 // If a new article has been posted
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && verifyToken($_SESSION['token'], $_POST['token'])) {
 
