@@ -11,4 +11,3 @@ Vous trouverez la base de données dans le dossier sql. Cette dernière était d
 
 
 ## Ajouter le dump de la bdd
-## Rajouter liste des commentaires qui ont été modérés

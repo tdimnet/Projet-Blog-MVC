@@ -28,6 +28,8 @@ include_once 'Vue/Templates/navigation.php';
           Commnentaire :
           <br>
           <?php echo $comment->getComment() ?>
+          <br>
+          <em>Lié à l'article <?php echo $comment->getArticle_id(); ?></em>
         </p>
         <p>
           <a

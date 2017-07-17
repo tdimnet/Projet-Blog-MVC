@@ -1,6 +1,6 @@
 <div class="container">
   <hr>
-  <h3>Comments liés à cet article</h3>
+  <h3>Commentaires liés à cet article</h3>
   <?php
   foreach ($comments as $comment) { ?>
     <div class="row">
