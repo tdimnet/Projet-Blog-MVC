@@ -29,6 +29,7 @@ if (isset($_GET['Controller']) && isset($_GET['Action'])) {
     addFlash('Vous êtes bien deconnecté !');
     header('Location: index.php');
     // Delete function
+
   } else if ($_GET['Controller'] === 'Admin' && $_GET['Action'] === 'deleteArticle' && verifyToken($_SESSION['token'], $_GET['token'])) {
     $articleId = $_GET['id'];
     $Article = findOne($articleId);

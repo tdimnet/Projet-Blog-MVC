@@ -95,8 +95,11 @@ function publishArticle(Article $Article) {
 function deleteArticle(Article $Article) {
   global $bdd;
 
-  $request = $bdd->prepare('DELETE FROM articles WHERE id= :article_id');
-
-  $request->bindValue(':article_id', $Article->getId(), PDO::PARAM_INT);
-  $request->execute();
+  $commentRequest = $bdd->prepare('DELETE FROM comments WHERE article_id= :article_id');
+  $commentRequest->bindValue(':article_id', $Article->getId(), PDO::PARAM_INT);
+  $commentRequest->execute();
+  
+  $articleRequest = $bdd->prepare('DELETE FROM articles WHERE id= :article_id');
+  $articleRequest->bindValue(':article_id', $Article->getId(), PDO::PARAM_INT);
+  $articleRequest->execute();
 }
