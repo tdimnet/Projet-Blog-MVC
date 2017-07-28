@@ -14,7 +14,7 @@ $articleId = $_GET['id'];
 $article = findOne($articleId);
 
 if (isset($articleId) && !is_null($article)) {
-  require_once 'Vue\Admin\modifyArticle.php';
+  require_once 'Vue/Admin/modifyArticle.php';
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST' && verifyToken($_SESSION['token'], $_POST['token'])) {
 

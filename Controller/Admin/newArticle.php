@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && verifyToken($_SESSION['token'], $_P
     header('Location: index.php?Controller=Admin');
   }
 } else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-  require_once 'Vue\Admin\newArticle.php';
+  require_once 'Vue/Admin/newArticle.php';
 } else {
   addFlash('Vous n\'avez pas vous accès à votre espace personnalisé !');
   header('Location: index.php');

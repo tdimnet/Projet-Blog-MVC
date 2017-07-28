@@ -1,6 +1,6 @@
 <?php
-include_once 'Vue\Templates\header.php';
-include_once 'Vue\Templates\navigation.php';
+include_once 'Vue/Templates/header.php';
+include_once 'Vue/Templates/navigation.php';
 ?>
 
 <div class="container">
@@ -30,5 +30,5 @@ include_once 'Vue\Templates\navigation.php';
 </div>
 
 <?php
-include_once 'Vue\Templates\footer.php';
+include_once 'Vue/Templates/footer.php';
 ?>
